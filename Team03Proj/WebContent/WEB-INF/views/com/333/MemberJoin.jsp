@@ -19,7 +19,7 @@
       <h1>약관동의</h1>
       <p class="w3-opacity">GET IN TOUCH</p>
 
-      <form class="w3-container w3-card w3-padding-32 w3-white" action="/action_page.php" target="_blank">
+      <form class="w3-container w3-card w3-padding-32 w3-white" action="">
 		<div class="w3-col mb10 ">
 				
 			<span class="input_chk">
@@ -27,6 +27,7 @@
 				<label for="chk_all"><span class="chk_all_txt">333 이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택)에 모두 동의합니다.</span></label>
 			</span>
 	    </div>  	
+	    
        	<!-- 333 이용약관 동의 안내 -->
 		<div class="w3-col mb10 ">
 			<span class="input_chk">
@@ -66,6 +67,7 @@
 			</div>
 		</div>
 				
+        <button type="reset" class="w3-button w3-red w3-left ">cancel</button>
         <button type="submit" class="w3-button w3-teal w3-right">Send</button>
       </form>
     </div>
