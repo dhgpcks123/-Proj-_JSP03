@@ -21,8 +21,10 @@
 			<h4 class="w3-right w3-margin-right" 
 				style="display: inline-block"> id : </h4>
 		</div>
+		
 		<h1 class="w3-pink m2 w3-right w3-button" 
-			style="width: 100px; height:100px;" id="lbtn">Login</h1>
+			style="width: 100px; height:80px;" id="lbtn">Login</h1>
+			
 		<div class="w3-col m3" style="height:50px; text-align:left">
 		<input class="w3-right" style="margin-top: 10px" type="password">
 			<h4 class="w3-right w3-margin-right" 
@@ -34,7 +36,7 @@
 	</div>
 	<div class="w3-col m9 w3-yellow" style="height:700px">
 		<img class="w3-button" 
-			src="/Team03Proj/img/heart.png" style="width:50px; height:auto;"
+			src="/Team03Proj/img/Heart.png" style="width:50px; height:auto;"
 				id="sos" name="sos">응급SOS
 		<h1 class="w3-center">Map API</h1>
 	</div>
