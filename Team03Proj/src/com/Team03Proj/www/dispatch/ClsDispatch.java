@@ -93,7 +93,7 @@ public class ClsDispatch extends HttpServlet {
 			resp.sendRedirect(view);
 		} else if(!bool) {
 			//forward 시켜야 하는 경우
-			String prefix = "/WEB-INF/views/com/increpas/cls/";
+			String prefix = "/WEB-INF/views/com/Team03Proj/www/";
 			String surffix = ".jsp";
 			RequestDispatcher rd = req.getRequestDispatcher(prefix+view+surffix);
 			rd.forward(req, resp);
