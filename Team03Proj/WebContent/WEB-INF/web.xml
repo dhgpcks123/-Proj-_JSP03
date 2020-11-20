@@ -6,7 +6,7 @@
 	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 	 					 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd ">
 <!-- 
-		이 파일은 jspcls 프로젝트에 한해서 적용시킬
+		이 파일은 Team03 프로젝트에 한해서 적용시킬
 		설정을 지정하는 파일이다.
 -->
 
@@ -14,14 +14,14 @@
 	<!-- css, js, img 서블릿 정의-->
 	<servlet>
 		<servlet-name>resrc</servlet-name>
-		<servlet-class>com.increpas.cls.controller.Resrc</servlet-class>
+		<servlet-class>com.Team03Proj.www.controller.Resrc</servlet-class>
 	</servlet>
 
 
 	<!--  *.cls로 들어오는 모든 요청 서블릿 -->
 	<servlet>
 		<servlet-name>clsDispatch</servlet-name>
-		<servlet-class>com.increpas.cls.dispatch.ClsDispatch</servlet-class>
+		<servlet-class>com.Team03Proj.www.dispatch.ClsDispatch</servlet-class>
 	</servlet>
 
 	
