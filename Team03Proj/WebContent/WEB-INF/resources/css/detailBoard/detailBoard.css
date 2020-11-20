@@ -161,14 +161,23 @@ body, hmtl{background: #ecf0f1;}
 	height: 150px;
 }
 
-.starR{
-  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
-  background-size: auto 100%;
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  text-indent: -9999px;
-  cursor: pointer;
+a:hover{
+	color: black;
+	text-decoration: none;
 }
-.starR.on{background-position:0 0;}
+
+
+<!-- -->
+  #star_grade a{
+        text-decoration: none;
+        color: gray;
+        text-shadow: 2px 2px 2px gray;
+        font-size: 20pt;
+   }
+   #star_grade a.on{
+       color: yellow;
+       text-shadow: 2px 2px 2px gray;
+       font-size: 20pt;
+   }
+
 
