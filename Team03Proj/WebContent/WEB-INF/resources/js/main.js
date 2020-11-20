@@ -5,4 +5,7 @@ $(document).ready(function(){
 	$('#lbtn').click(function(){
 		alert('로그인 폼 전달');
 	});
+	$('#jbtn').click(function(){
+		alert('회원가입폼 뷰');
+	});
 });
