@@ -9,7 +9,7 @@ public class Main implements ClsMain{
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		req.setAttribute("isRedirect", false);
 		String view = "main";
-		
+		//
 		return view;
 	}
 }

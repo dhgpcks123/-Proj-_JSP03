@@ -34,7 +34,7 @@
 	</div>
 	<div class="w3-col m9 w3-yellow" style="height:700px">
 		<img class="w3-button" 
-			src="/Team03Proj/img/Heart.png" style="width:50px; height:auto;"
+			src="/Team03Proj/img/heart.png" style="width:50px; height:auto;"
 				id="sos" name="sos">응급SOS
 		<h1 class="w3-center">Map API</h1>
 	</div>
