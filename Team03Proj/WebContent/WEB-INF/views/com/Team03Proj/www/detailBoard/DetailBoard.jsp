@@ -35,8 +35,7 @@
 			<!-- x아이콘 -->
 		<div class="w3-panel" style="position: fixed; z-index: 999; top:1%; right:6%">
 			<div class="w3-section w3-right">
-			<a class="w3-button w3-red"
-				onclick="document.getElementById('id01').style.display='none'"><i class="fa fa-remove"></i>
+			<a class="w3-button w3-red" id="xbutton"><i class="fa fa-remove"></i>
 				</a>
 			</div>
 		</div>
@@ -72,7 +71,7 @@
 									<i class="fas fa-map-marked-alt"></i> 경로 찾기
 								</div>
 								<div class="w3-button" style="font-size: 15pt;">
-									<i class="fas fa-pencil-alt"></i> 리뷰 쓰기
+									<i class="fas fa-pencil-alt"></i><a href="#wReviewfrm"> 리뷰 쓰기</a>
 								</div>
 								<div class="w3-button" style="font-size: 15pt;">
 									<i class="fas fa-bookmark"></i> 찜 하기
@@ -158,7 +157,7 @@
 								</div>
 							</div>
 							<!-- 2 -->
-							<div style="background-color: #F6F6F6; margin-top: 10px; display: flex; justify-content: space-between; border-bottom: 1px solid #ECEAEB; padding: 0px 20px;">
+							<div style="background-color: #F6F6F6; margin-top: 30px; display: flex; justify-content: space-between; border-bottom: 1px solid #ECEAEB; padding: 0px 20px;">
 								<h3 style="cursor: pointer; margin-top : 15px;">원조할배국밥 구로디지털단지역 &gt;</h3>
 								<h3 style="color:yellow; margin-left: 3%; text-shadow: 2px 2px 2px gray;">★★★☆☆</h3>
 
@@ -190,17 +189,26 @@
 
 						<footer style="display: flex; flex-direction: column;  margin-top: 50px; margin-left: 60px; margin-right: 40px;">
 							<form method="POST" action="#" id="wReviewfrm" name="wReviewfrm">
-								<input type="file">
-								<textarea style="width: 100%; height: 200px; margin-bottom: 5px; padding: 20px;" placeholder="이 곳에 리뷰를 작성하세요 :)"></textarea>
-								
-								<div class="starRev" style="display:inline-block; margin-left: 15px;">
-								  <span class="starR on">별1</span>
-								  <span class="starR">별2</span>
-								  <span class="starR">별3</span>
-								  <span class="starR">별4</span>
-								  <span class="starR">별5</span>
+								<!-- file추가 -->
+								<div>
+								<input type="file" style="display: inline-block; width: 500px;" id="file1">
+								<input type="file" style="display: none; width: 500px;" id="file2">
+								<input type="file" style="display: none; width: 500px;" id="file3">
+								<input type="file" style="display: none; width: 500px;" id="file4">
+								</div>
+								<!-- 별 -->
+								<div class="starRev w3-right" style="display:inline-block; margin-left: 15px;">
+								 	<p id="star_grade">
+								        <a href="#">★</a>
+								        <a href="#">★</a>
+								        <a href="#">★</a>
+								        <a href="#">★</a>
+								        <a href="#">★</a>
+									</p>
 								</div>
 									
+								<!-- review body추가 -->
+								<textarea style="width: 100%; height: 200px; margin-bottom: 5px; padding: 20px;" placeholder="이 곳에 리뷰를 작성하세요 :)"></textarea>
 								
 								<div class="w3-button w3-amber w3-right" id="wsend" style="margin-bottom: 30px; width: 150px;">리뷰 작성</div>
 							</form>

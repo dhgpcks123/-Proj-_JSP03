@@ -1,7 +1,9 @@
 $(document).ready(function(){
 /*##################### x버튼 이벤트 #########################*/
 
-	
+	$('#xbutton').click(function(){
+		$('#id01').css('display', 'none');
+	});
 	
 	
 /*############################# Slider 관련 js #########################*/
@@ -44,11 +46,11 @@ $(document).ready(function(){
 		var autoSlider = setInterval(slideRight, 4000);
 		
 		//for each slide 
-		$.each($('#slider-wrap ul li'), function() { 
 		
-		   //create a pagination
-		   var li = document.createElement('li');
-		   $('#pagination-wrap ul').append(li);   
+		$.each($('#slider-wrap ul li')/2, function() { 
+			   //create a pagination
+			   var li = document.createElement('li');
+			   $('#pagination-wrap ul').append(li);   
 		});
 		
 		//counter
@@ -104,8 +106,23 @@ $(document).ready(function(){
 		$('#pagination-wrap ul li:eq('+pos+')').addClass('active');
 		}
 		
-});
+		 $('#star_grade a').click(function(){
+            $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+            $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+            return false;
+     	   });
 
+		/* 파일이 추가되면 파일선택 버튼이 늘어나도록 설정 */		
+		$('#file1').change(function(){
+			$('#file2').css('display', 'inline-block');
+		});
+		$('#file2').change(function(){
+			$('#file3').css('display', 'inline-block');
+		});
+		$('#file3').change(function(){
+			$('#file4').css('display', 'inline-block');
+		});
+});
 
 
 
