@@ -17,7 +17,7 @@
   <div class="w3-content w3-center w3-teal w3-container mw400700 radius1">
 
     <!-- STEP 1  -->
-    <div class="w3-padding-64 w3-padding-large w3-hide" id="step1">
+    <div class="w3-padding-64 w3-padding-large " id="step1">
       <h1>회원가입</h1>
       <p class="w3-opacity">STEP 1</p>
 
@@ -74,9 +74,9 @@
        	</div>
        	<!-- 생년월일  -->
        	<div class="w3-col  pb20">
-			<input class="w3-third  w3-input w3-padding-16  mr10 w3-border" type="number" name="year" value="1988" min="1900", max="2020">
-			<input class="w3-third  w3-input w3-padding-16  ml10 mr10  w3-border" type="number" name="mouth" value="1" min="1", max="12">
-			<input class="w3-third  w3-input w3-padding-16  ml10 w3-border" type="number" name="day" value="1" min="1", max="31">
+			<input class="w3-third  w3-input w3-padding-16   w3-border" type="number" name="year" value="1988" min="1900", max="2020">
+			<input class="w3-third  w3-input w3-padding-16     w3-border" type="number" name="mouth" value="1" min="1", max="12">
+			<input class="w3-third  w3-input w3-padding-16   w3-border" type="number" name="day" value="1" min="1", max="31">
        	</div>
        	<!-- 전화번호 -->
        	<div class="w3-col  pb20">

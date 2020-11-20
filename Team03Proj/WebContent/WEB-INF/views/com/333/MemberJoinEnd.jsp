@@ -23,15 +23,15 @@
 
       <form class="w3-container w3-card w3-padding-32 w3-white w3-animate-left" action="" id="frm1">
 		<div class="w3-col mb10 pb20">
-			<h1 class="mt50">환영합니다!</h1>
+			<h1 class="mtb50">환영합니다!</h1>
 			<i class="far fa-check-circle" style="width: 70px; height: 70px; "></i>
-			<span class="input_chk mt50">
-				<span class="chk_all">회원은 필수 입력사항에 대해</span><br>
-				<span class="chk_all">허위 기재 시 회원가입을 취소할 수 있습니다.</span>
+			<span class="input_chk mtb50">
+				<span class="chk_all"><strong>name</strong>님의 아이디는 <strong class="w3-text-red">id</strong>입니다.</span><br>
+				<span class="chk_all">지금 바로 시작해보세요.</span>
 			</span>
 	    </div>  	
 				
-        <button  class="w3-button w3-blue">시작하기</button>
+        <button  class="w3-button w3-blue startbtn">시작하기</button>
       </form>
     </div>
 </body>
