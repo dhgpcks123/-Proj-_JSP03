@@ -7,14 +7,13 @@
 <meta charset="UTF-8">
 <title>MainPage</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href='https://fonts.googleapis.com/css?family=RobotoDraft'
-	rel='stylesheet' type='text/css'>
+
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/cls.css">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/w3.css">
 <link rel="stylesheet" type="text/css"
 	href="/Team03Proj/css/detailBoard/detailBoard.css">
 <link rel="stylesheet" type="text/css"
-	href="/Team03Proj/css/bridgeBoard/bridgeBoard.css">
+	href="/Team03Proj/css/main/mainPage.css">
 <script src="https://kit.fontawesome.com/e6e9b86680.js"
 	crossorigin="anonymous"></script>
 <script type="text/javascript" src="/Team03Proj/js/jquery-3.5.1.min.js"></script>
@@ -26,15 +25,17 @@
 	<!-- Side Navigation -->
 	<nav
 		class="w3-sidebar w3-collapse w3-animate-left w3-card"
-		style="z-index: 3; width: 380px;" id="mySidebar">
-
+		style="z-index: 3; width: 400px;" id="mySidebar">
+		<div style="text-align: right;">
 		<a href="javascript:void(0)"
-			class="w3-bar-item w3-button w3-button w3-left-align"
+			class="w3-bar-item w3-button w3-button"
 			style="font-size: 10pt;"
-			onclick="document.getElementById('id01').style.display='block'"><span
-			class="w3-right"><Strong>> 자세히 보기 </Strong><i
-				class="fas fa-info-circle"></i></span> </a>
-
+			onclick="document.getElementById('id01').style.display='block'">
+			<span>
+				<Strong>> 자세히 보기 </Strong><i class="fas fa-info-circle"></i>
+			</span>
+		</a>
+		</div>
 
 
 		<section style="margin-left: 4px;">
@@ -431,7 +432,7 @@
 		id="myOverlay"></div>
 
 	<!-- Page content -->
-	<div class="w3-main" style="margin-left: 380px;">
+	<div class="w3-main" style="margin-left: 400px;">
 		<div class="w3-col" style="margin-top: 20px;">
 			<div class="w3-col" style="text-align: right;">
 				<div class="w3-col m12 l12 s12" style="padding-right: 60px;">
@@ -449,8 +450,8 @@
 		</div>
 
 		<div>
-			<img src="/Team03Proj/img/bridgeBoard/imageservice.png"
-				class="w3-col" style="width: 100%; height: 80vh; padding: 7px;">
+			<img src="/Team03Proj/img/main/imageservice.png"
+				class="w3-col" style="width: 100%; height: 85vh; padding: 7px;">
 		</div>
 	</div>
 	<!-- 여기까지 페이지 컨텐트 -->

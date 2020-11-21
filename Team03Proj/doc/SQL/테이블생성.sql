@@ -1,13 +1,12 @@
-
--- system °èÁ¤ (sj > ¿øÇÏ´Â °èÁ¤À¸·Î º¯°æ)
+-- system ê³„ì • (sj > ì›í•˜ëŠ” ê³„ì •ìœ¼ë¡œ ë³€ê²½)
 CREATE USER sj identified by hello;
 grant create session to sj;
 grant create table to sj;
 alter user sj default tablespace users quota unlimited on users;
 
 
--- »ç¿ëÀÚ °èÁ¤ sj 
--- È¸¿øÁ¤º¸Å×ÀÌºí
+-- ì‚¬ìš©ìž ê³„ì • sj 
+-- íšŒì›ì •ë³´í…Œì´ë¸”
 create table member(
     mno NUMBER(10)
         CONSTRAINT MB_MNO_PK PRIMARY KEY,
@@ -50,68 +49,68 @@ create table member(
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'jang','Àå¼öÁø','12345','jang@increpas.com','010-1234-5677',sysdate,'F','Y','B','RH+','92/11/02','010-1234-5678'
+    'jang','ìž¥ìˆ˜ì§„','12345','jang@increpas.com','010-1234-5677',sysdate,'F','Y','B','RH+','92/11/02','010-1234-5678'
 );
 
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'chan','¿ÀÇýÂù','12345','chan@increpas.com','010-1111-1111',sysdate,'M','Y','A','RH+','93/01/02','010-1111-1118'
+    'chan','ì˜¤í˜œì°¬','12345','chan@increpas.com','010-1111-1111',sysdate,'M','Y','A','RH+','93/01/02','010-1111-1118'
 );
 
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'wook','À¯º´¿í','12345','wook@increpas.com','010-2222-2222',sysdate,'M','Y','O','RH+','92/08/02','010-2222-2228'
+    'wook','ìœ ë³‘ìš±','12345','wook@increpas.com','010-2222-2222',sysdate,'M','Y','O','RH+','92/08/02','010-2222-2228'
 );
 
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'joseph','À±¿ä¼Á','12345','joseph@increpas.com','010-3333-3333',sysdate,'M','Y','O','RH+','88/07/02','010-3333-3338'
+    'joseph','ìœ¤ìš”ì…‰','12345','joseph@increpas.com','010-3333-3333',sysdate,'M','Y','O','RH+','88/07/02','010-3333-3338'
 );
 
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'jiwoo','ÀÌÁö¿ì','12345','jiwoo@increpas.com','010-4444-4444',sysdate,'M','Y','A','RH+','95/05/12','010-4444-4448'
+    'jiwoo','ì´ì§€ìš°','12345','jiwoo@increpas.com','010-4444-4444',sysdate,'M','Y','A','RH+','95/05/12','010-4444-4448'
 );
 
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'jjang','Àå¼ºÈ¯','12345','jjang@increpas.com','010-5555-5555',sysdate,'M','Y','AB','RH+','97/05/12','010-5555-5558'
+    'jjang','ìž¥ì„±í™˜','12345','jjang@increpas.com','010-5555-5555',sysdate,'M','Y','AB','RH+','97/05/12','010-5555-5558'
 );
 
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'sun','±Ç¿µ¼±','12345','sun@increpas.com','010-6666-6666',sysdate,'F','Y','B','RH+','99/05/12','010-6666-6668'
-);
-
-
-INSERT INTO member
-VALUES(
-    (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'joo','±èÁÖ¿µ','12345','joo@increpas.com','010-7777-7777',sysdate,'F','Y','B','RH+','97/05/12','010-7777-7778'
+    'sun','ê¶Œì˜ì„ ','12345','sun@increpas.com','010-6666-6666',sysdate,'F','Y','B','RH+','99/05/12','010-6666-6668'
 );
 
 
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'hong','È«±æµ¿','12345','hong@increpas.com','010-8888-8888',sysdate,'M','Y','AB','RH-','90/06/12','010-8888-8880'
+    'joo','ê¹€ì£¼ì˜','12345','joo@increpas.com','010-7777-7777',sysdate,'F','Y','B','RH+','97/05/12','010-7777-7778'
+);
+
+
+INSERT INTO member
+VALUES(
+    (SELECT NVL(MAX(mno)+1,1001) FROM member),
+    'hong','í™ê¸¸ë™','12345','hong@increpas.com','010-8888-8888',sysdate,'M','Y','AB','RH-','90/06/12','010-8888-8880'
 );
 
 INSERT INTO member
 VALUES(
     (SELECT NVL(MAX(mno)+1,1001) FROM member),
-    'tess','Å×½ºÇü','12345','tess@increpas.com','010-9999-9999',sysdate,'M','Y','AB','RH-','30/06/12','010-9999-9990'
+    'tess','í…ŒìŠ¤í˜•','12345','tess@increpas.com','010-9999-9999',sysdate,'M','Y','AB','RH-','30/06/12','010-9999-9990'
 );
 
 SELECT * FROM member;
 
--- È¸¿øµî±ÞÅ×ÀÌºí
+-- íšŒì›ë“±ê¸‰í…Œì´ë¸”
 CREATE TABLE grade(
     grade VARCHAR2 (6 CHAR)
         CONSTRAINT GRADE_GRADE_CK CHECK (grade IN ('FAMILY', 'GOLD', 'VIP', 'VVIP')),
@@ -148,7 +147,7 @@ VALUES(
 
 SELECT * FROM grade;
 
---È¸¿øÀ§Ä¡Å×ÀÌºí
+--íšŒì›ìœ„ì¹˜í…Œì´ë¸”
 CREATE TABLE userlocation(
     uno NUMBER(10) 
         CONSTRAINT ULOC_UNO_PK PRIMARY KEY,
@@ -165,70 +164,70 @@ CREATE TABLE userlocation(
 INSERT INTO
     userlocation
 VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1001,6,8,'Á¦ÁÖ Á¦ÁÖ½Ã 516·Î 2596',sysdate
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1001,6,8,'ì œì£¼ ì œì£¼ì‹œ 516ë¡œ 2596',sysdate
 );
 
 INSERT INTO
     userlocation
 VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1002,7,9,'Á¦ÁÖ ¼­±ÍÆ÷½Ã ¼º»êÀ¾ ¼º»ê¸® 1',sysdate
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1002,7,9,'ì œì£¼ ì„œê·€í¬ì‹œ ì„±ì‚°ì ì„±ì‚°ë¦¬ 1',sysdate
 );
 
 INSERT INTO
     userlocation
 VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1003,19,39,'Á¦ÁÖ ¼­±ÍÆ÷½Ã ´ëÁ¤À¾ °¡ÆÄ¸® 600',sysdate
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1003,19,39,'ì œì£¼ ì„œê·€í¬ì‹œ ëŒ€ì •ì ê°€íŒŒë¦¬ 600',sysdate
 );
 
 INSERT INTO
     userlocation
 VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1004,1,9,'Á¦ÁÖ ¼­±ÍÆ÷½Ã ´ëÁ¤À¾ °¡ÆÄ¸®',sysdate
-);
-
-
-INSERT INTO
-    userlocation
-VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1005,17,9,'Á¦ÁÖ Á¦ÁÖ½Ã µ¿¹®·Î 16',sysdate
-);
-
-INSERT INTO
-    userlocation
-VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1006,7,90,'Á¦ÁÖ Á¦ÁÖ½Ã ÇÑ¸²À¾ ÇùÀç¸® 2497-1',sysdate
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1004,1,9,'ì œì£¼ ì„œê·€í¬ì‹œ ëŒ€ì •ì ê°€íŒŒë¦¬',sysdate
 );
 
 
 INSERT INTO
     userlocation
 VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1007,87,90,'Á¦ÁÖ Á¦ÁÖ½Ã Á¶ÃµÀ¾ Á¶ÇÔÇØ¾È·Î 525',sysdate
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1005,17,9,'ì œì£¼ ì œì£¼ì‹œ ë™ë¬¸ë¡œ 16',sysdate
+);
+
+INSERT INTO
+    userlocation
+VALUES(
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1006,7,90,'ì œì£¼ ì œì£¼ì‹œ í•œë¦¼ì í˜‘ìž¬ë¦¬ 2497-1',sysdate
 );
 
 
 INSERT INTO
     userlocation
 VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1008,74,80,'Á¦ÁÖ Á¦ÁÖ½Ã Á¶ÃµÀ¾ ºÏÃÌ5±æ 6',sysdate
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1007,87,90,'ì œì£¼ ì œì£¼ì‹œ ì¡°ì²œì ì¡°í•¨í•´ì•ˆë¡œ 525',sysdate
+);
+
+
+INSERT INTO
+    userlocation
+VALUES(
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1008,74,80,'ì œì£¼ ì œì£¼ì‹œ ì¡°ì²œì ë¶ì´Œ5ê¸¸ 6',sysdate
 );
 
 INSERT INTO
     userlocation
 VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1009,4,88,'Á¦ÁÖ½Ã ±¸ÁÂÀ¾ ¼¼ÆòÇ×·Î 26',sysdate
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1009,4,88,'ì œì£¼ì‹œ êµ¬ì¢Œì ì„¸í‰í•­ë¡œ 26',sysdate
 );
 
 INSERT INTO
     userlocation
 VALUES(
-    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1010,39,20,'Á¦ÁÖ ¼­±ÍÆ÷½Ã ¾È´ö¸é Ã¢Ãµ¸® 564',sysdate
+    (SELECT NVL(MAX(uno)+1,1) FROM userlocation),1010,39,20,'ì œì£¼ ì„œê·€í¬ì‹œ ì•ˆë•ë©´ ì°½ì²œë¦¬ 564',sysdate
 );
 
 SELECT  * FROM userlocation;
 
 
---Áúº´ºÐ·ùÅ×ÀÌºí
+--ì§ˆë³‘ë¶„ë¥˜í…Œì´ë¸”
 CREATE TABLE disease(
     dno NUMBER(10) 
         CONSTRAINT DISEASE_DNO_PK PRIMARY KEY,
@@ -239,90 +238,90 @@ CREATE TABLE disease(
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'½Äµµ¿°'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ì‹ë„ì—¼'
 );
 
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'À§¿°'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ìœ„ì—¼'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'°ú¹Î¼º ´ëÀå ÁõÈÄ±º'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ê³¼ë¯¼ì„± ëŒ€ìž¥ ì¦í›„êµ°'
 );
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'°£¿°'
-);
-
-INSERT INTO
-    disease
-VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'°¨±â'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ê°„ì—¼'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'Æó·Å'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ê°ê¸°'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'¼ÒÈ­ºÒ·®'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'íë ´'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'°øÈ²Àå¾Ö'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ì†Œí™”ë¶ˆëŸ‰'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'½É±Ù°æ»öÁõ'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ê³µí™©ìž¥ì• '
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'´ç´¢º´'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ì‹¬ê·¼ê²½ìƒ‰ì¦'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ºóÇ÷'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ë‹¹ë‡¨ë³‘'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'Ä¡¼ö¿°'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ë¹ˆí˜ˆ'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'¾Ë·¹¸£±â'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ì¹˜ìˆ˜ì—¼'
 );
 
 INSERT INTO
     disease
 VALUES(
-    (SELECT NVL(MAX(dno)+1,1) FROM disease),'³úÃâÇ÷'
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ì•Œë ˆë¥´ê¸°'
+);
+
+INSERT INTO
+    disease
+VALUES(
+    (SELECT NVL(MAX(dno)+1,1) FROM disease),'ë‡Œì¶œí˜ˆ'
 );
 
 SELECT * FROM disease;
 
--- È¸¿øÁúº´Å×ÀÌºí
+-- íšŒì›ì§ˆë³‘í…Œì´ë¸”
 CREATE TABLE userdisease(
     mno NUMBER(10)
         CONSTRAINT UDISEASE_MNO_FK REFERENCES member(mno),
@@ -396,48 +395,48 @@ SELECT * FROM userdisease;
 
 
 
--- Àå¼ÒÀ¯ÇüÅ×ÀÌºí
+-- ìž¥ì†Œìœ í˜•í…Œì´ë¸”
 CREATE TABLE areatype(
       atno NUMBER(2)
         CONSTRAINT ATYPE_ATNO_PK PRIMARY KEY
         CONSTRAINT ATYPE_ATNO_CK CHECK (atno IN (10,20,30,40,50)),
       atname VARCHAR2(2 CHAR)
         CONSTRAINT ATYPE_ATNAME_NN NOT NULL
-        CONSTRAINT AYTPE_ATNAME_CK CHECK (atname IN ('°ü±¤','¼÷¹Ú','½Ä´ç','º´¿ø','ÀÀ±Þ'))
+        CONSTRAINT AYTPE_ATNAME_CK CHECK (atname IN ('ê´€ê´‘','ìˆ™ë°•','ì‹ë‹¹','ë³‘ì›','ì‘ê¸‰'))
 );
 
 INSERT INTO
     areatype
 VALUES(
-    10,'°ü±¤'
+    10,'ê´€ê´‘'
 );
 
 
 INSERT INTO
     areatype
 VALUES(
-    20,'¼÷¹Ú'
+    20,'ìˆ™ë°•'
 );
 INSERT INTO
     areatype
 VALUES(
-    30,'½Ä´ç'
+    30,'ì‹ë‹¹'
 );
 INSERT INTO
     areatype
 VALUES(
-    40,'º´¿ø'
+    40,'ë³‘ì›'
 );
 INSERT INTO
     areatype
 VALUES(
-    50,'ÀÀ±Þ'
+    50,'ì‘ê¸‰'
 );
 
 
 
 SELECT * FROM AREATYPE;
--- Àå¼ÒÁ¤º¸Å×ÀÌºí
+-- ìž¥ì†Œì •ë³´í…Œì´ë¸”
 create table areainfo(
     ano NUMBER(10) 
         CONSTRAINT AINFO_ANO_PK PRIMARY KEY,
@@ -470,9 +469,9 @@ create table areainfo(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'¼·ÁöÄÚÁö','Á¦ÁÖ ¼­±ÍÆ÷½Ã ¼º»êÀ¾ °í¼º¸®','064-782-2810',10,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì„­ì§€ì½”ì§€','ì œì£¼ ì„œê·€í¬ì‹œ ì„±ì‚°ì ê³ ì„±ë¦¬','064-782-2810',10,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '3¿ù¸»¿¡ °¡¸é À¯Ã¤²É ÀÏ¸ô Ç³°æÀ» º¼ ¼ö ÀÖ°í, µÚ¿¡ ÀÖ´Â °è´ÜÀ» ¿À¸£¸é Çª¸¥ ¹Ù´Ù°¡ ÀÖ½À´Ï´Ù.',
+    '3ì›”ë§ì— ê°€ë©´ ìœ ì±„ê½ƒ ì¼ëª° í’ê²½ì„ ë³¼ ìˆ˜ ìžˆê³ , ë’¤ì— ìžˆëŠ” ê³„ë‹¨ì„ ì˜¤ë¥´ë©´ í‘¸ë¥¸ ë°”ë‹¤ê°€ ìžˆìŠµë‹ˆë‹¤.',
     0,'Y',10,18
 );
 
@@ -480,9 +479,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'»ç¶ó¿À¸§','Á¦ÁÖ ¼­±ÍÆ÷½Ã ³²¿øÀ¾ ½Å·Ê¸® »ê2-1',null,10,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì‚¬ë¼ì˜¤ë¦„','ì œì£¼ ì„œê·€í¬ì‹œ ë‚¨ì›ì ì‹ ë¡€ë¦¬ ì‚°2-1',null,10,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '10¿ù ¸» ´ÜÇ³ ½ÃÁð¿¡ Ã£¾Æ ¿À¼¼¿ä. Á¤»ó¿¡¼­ ¿õÀåÇÑ ºÐÀ§±â¸¦ ´À²¸º¼ ¼ö ÀÖ¾î¿ä. ',
+    '10ì›” ë§ ë‹¨í’ ì‹œì¦Œì— ì°¾ì•„ ì˜¤ì„¸ìš”. ì •ìƒì—ì„œ ì›…ìž¥í•œ ë¶„ìœ„ê¸°ë¥¼ ëŠê»´ë³¼ ìˆ˜ ìžˆì–´ìš”. ',
     58,'Y',1401,86
 );  
 
@@ -491,9 +490,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'°¡ÆÄµµ','Á¦ÁÖ ¼­±ÍÆ÷½Ã ´ëÁ¤À¾ °¡ÆÄ¸®','064-794-7130',10,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ê°€íŒŒë„','ì œì£¼ ì„œê·€í¬ì‹œ ëŒ€ì •ì ê°€íŒŒë¦¬','064-794-7130',10,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '5¿ù¿¡ ÀÖ´Â °¡ÆÄµµ Ã»º¸¸® ÃàÁ¦¿¡ ²À °¡º¸¼¼¿ä. Ã»º¸¸®°¡ ³Ñ½Ç³Ñ½Ç~',
+    '5ì›”ì— ìžˆëŠ” ê°€íŒŒë„ ì²­ë³´ë¦¬ ì¶•ì œì— ê¼­ ê°€ë³´ì„¸ìš”. ì²­ë³´ë¦¬ê°€ ë„˜ì‹¤ë„˜ì‹¤~',
     8,'Y',101,8
 );  
 
@@ -502,9 +501,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'¼Û¾Ç»ê','Á¦ÁÖ ¼­±ÍÆ÷½Ã ´ëÁ¤À¾ ¼Û¾Ç°ü±¤·Î 421-1','064-120',10,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì†¡ì•…ì‚°','ì œì£¼ ì„œê·€í¬ì‹œ ëŒ€ì •ì ì†¡ì•…ê´€ê´‘ë¡œ 421-1','064-120',10,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '4¿ùÃÊ ºñ¿À±â Àü³¯ ÆÄµµ°¡ ¼¼°Ô Ä¥ ¶§ °¡¸é ¼ÓÀÌ »½ ¶Õ·Á¿ä! µÑ·¹±æ ¼Ò¿ä½Ã°£Àº 2½Ã°£ Á¤µµ µË´Ï´Ù. ',
+    '4ì›”ì´ˆ ë¹„ì˜¤ê¸° ì „ë‚  íŒŒë„ê°€ ì„¸ê²Œ ì¹  ë•Œ ê°€ë©´ ì†ì´ ë»¥ ëš«ë ¤ìš”! ë‘˜ë ˆê¸¸ ì†Œìš”ì‹œê°„ì€ 2ì‹œê°„ ì •ë„ ë©ë‹ˆë‹¤. ',
     10,'Y',11,80
 );  
 
@@ -512,9 +511,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'Á¦ÀÌÈúÈ£ÅÚ','Á¦ÁÖ ¼­±ÍÆ÷½Ã ÃµÁ¦¿¬·Î188¹ø±æ 11','064-805-7600',20,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì œì´íží˜¸í…”','ì œì£¼ ì„œê·€í¬ì‹œ ì²œì œì—°ë¡œ188ë²ˆê¸¸ 11','064-805-7600',20,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    'Àú·ÅÇÑ °¡°Ý¿¡ ¼÷¼Ò¸¦ ÀÌ¿ëÇÏ°í ½ÍÀ¸½Ã´Ù¸é °­ÃßÇÕ´Ï´Ù!',
+    'ì €ë ´í•œ ê°€ê²©ì— ìˆ™ì†Œë¥¼ ì´ìš©í•˜ê³  ì‹¶ìœ¼ì‹œë‹¤ë©´ ê°•ì¶”í•©ë‹ˆë‹¤!',
     19,'Y',11,9
 );  
 
@@ -522,18 +521,18 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'À¯Å¾À¯ºí·¹½ºÈ£ÅÚÁ¦ÁÖ','Á¦ÁÖ½Ã Á¶ÃµÀ¾ Á¶ÇÔÇØ¾È·Î 502','0507-1425-9307',20,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ìœ íƒ‘ìœ ë¸”ë ˆìŠ¤í˜¸í…”ì œì£¼','ì œì£¼ì‹œ ì¡°ì²œì ì¡°í•¨í•´ì•ˆë¡œ 502','0507-1425-9307',20,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    'ÇÔ´öÇØ¼ö¿åÀå ÀÏ¸ôÀ» º¸°í ½Í´Ù¸é ÀÌ°÷À¸·Î~ ¿îÀü¸éÇãÁõÀÌ ÀÖ´Â °æ¿ì Àüµ¿ Å±º¸µåµµ »ç¿ë °¡´ÉÇÕ´Ï´Ù.',
+    'í•¨ë•í•´ìˆ˜ìš•ìž¥ ì¼ëª°ì„ ë³´ê³  ì‹¶ë‹¤ë©´ ì´ê³³ìœ¼ë¡œ~ ìš´ì „ë©´í—ˆì¦ì´ ìžˆëŠ” ê²½ìš° ì „ë™ í‚¥ë³´ë“œë„ ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤.',
     4,'Y',1021,84
 );  
 
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'´õ¼î¾îÈ£ÅÚ','Á¦ÁÖ ¼­±ÍÆ÷½Ã Áß¹®°ü±¤·Î72¹ø±æ 114',null,20,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ë”ì‡¼ì–´í˜¸í…”','ì œì£¼ ì„œê·€í¬ì‹œ ì¤‘ë¬¸ê´€ê´‘ë¡œ72ë²ˆê¸¸ 114',null,20,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '¼÷¼Ò ¾È¿¡¼­ ¾Æ¸§´Ù¿î ¿À¼Çºä¸¦ º¼ ¼ö ÀÖ´Â È£ÅÚ, °¡º±°Ô »êÃ¥ÇÏ±âµµ ³Ê¹« ÁÁ¾Æ¿ä. ',
+    'ìˆ™ì†Œ ì•ˆì—ì„œ ì•„ë¦„ë‹¤ìš´ ì˜¤ì…˜ë·°ë¥¼ ë³¼ ìˆ˜ ìžˆëŠ” í˜¸í…”, ê°€ë³ê²Œ ì‚°ì±…í•˜ê¸°ë„ ë„ˆë¬´ ì¢‹ì•„ìš”. ',
     8,'Y',1401,48
 );  
 
@@ -542,9 +541,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'¼º»ê¿ÁÅ¾','Á¦ÁÖ ¼­±ÍÆ÷½Ã ¼º»êÀ¾ ÀÏÃâ·Î 270-8 2Ãþ','064-782-5050',30,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì„±ì‚°ì˜¥íƒ‘','ì œì£¼ ì„œê·€í¬ì‹œ ì„±ì‚°ì ì¼ì¶œë¡œ 270-8 2ì¸µ','064-782-5050',30,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '¼º»êÀÏÃâºÀÀ» ´àÀº µ·±î½º¸¦ º¸°í ½ÍÀ¸½Ã´Ù¸é Ã£¾Æ¿À¼¼¿ä~ ¸Àµµ ´ýÀ¸·Î µå¸³´Ï´Ù!',
+    'ì„±ì‚°ì¼ì¶œë´‰ì„ ë‹®ì€ ëˆê¹ŒìŠ¤ë¥¼ ë³´ê³  ì‹¶ìœ¼ì‹œë‹¤ë©´ ì°¾ì•„ì˜¤ì„¸ìš”~ ë§›ë„ ë¤ìœ¼ë¡œ ë“œë¦½ë‹ˆë‹¤!',
     80,'Y',141,7
 );  
 
@@ -552,9 +551,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'´ã¾Æ·¡ ¼­±ÍÆ÷Á¡','Á¦ÁÖ Á¦ÁÖ½Ã ¼ö¸ñ¿ø±æ 23 1Ãþ','0507-1310-5917',30,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ë‹´ì•„ëž˜ ì„œê·€í¬ì ','ì œì£¼ ì œì£¼ì‹œ ìˆ˜ëª©ì›ê¸¸ 23 1ì¸µ','0507-1310-5917',30,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '°£Àåµü»õ¿ì¹ä, ÇÑ¶ó¹ö¼¸¹ä, ²Ü²Ü±èÄ¡¹ä, »Ô¼Ò¶ó Åê¹ä ÆÈ¾Æ¿ä. ¼û°ÜÁø ¸ÀÁý@_@',
+    'ê°„ìž¥ë”±ìƒˆìš°ë°¥, í•œë¼ë²„ì„¯ë°¥, ê¿€ê¿€ê¹€ì¹˜ë°¥, ë¿”ì†Œë¼ í†³ë°¥ íŒ”ì•„ìš”. ìˆ¨ê²¨ì§„ ë§›ì§‘@_@',
     10,'Y',181,35
 );  
 
@@ -562,9 +561,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'Á¦ÁÖÇÑ¶ó±¹¼ö','Á¦ÁÖ ¼­±ÍÆ÷½Ã ÃµÁ¦¿¬·Î188¹ø±æ 17','064-738-6392',30,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì œì£¼í•œë¼êµ­ìˆ˜','ì œì£¼ ì„œê·€í¬ì‹œ ì²œì œì—°ë¡œ188ë²ˆê¸¸ 17','064-738-6392',30,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '¸ÀÀÖ´Â ³à¼®µéµµ ¸ÔÀº < Á¦ÁÖ °í±â ±¹¼ö >, ÂÞ²Ù¹Ì°¡ µé¾î°£ »¡°£ ¿­¹ä ÃÖ°íÀÇ Á¶ÇÕ',
+    'ë§›ìžˆëŠ” ë…€ì„ë“¤ë„ ë¨¹ì€ < ì œì£¼ ê³ ê¸° êµ­ìˆ˜ >, ì­ˆê¾¸ë¯¸ê°€ ë“¤ì–´ê°„ ë¹¨ê°„ ì—´ë°¥ ìµœê³ ì˜ ì¡°í•©',
     17,'Y',1401,85
 );  
 
@@ -573,9 +572,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'´ÚÅÍ¾ç³»°ú','Á¦ÁÖ Á¦ÁÖ½Ã °ü´ö·Î 18','064-752-3312',40,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ë‹¥í„°ì–‘ë‚´ê³¼','ì œì£¼ ì œì£¼ì‹œ ê´€ë•ë¡œ 18','064-752-3312',40,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    'Ä£ÀýÇÏ°Ô ÀÀ´ëÇØµå¸³´Ï´Ù. ',
+    'ì¹œì ˆí•˜ê²Œ ì‘ëŒ€í•´ë“œë¦½ë‹ˆë‹¤. ',
     2,'Y',1031,845
 );  
 
@@ -583,9 +582,9 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'¼±Ä¡°úÀÇ¿ø','Á¦ÁÖ ¼­±ÍÆ÷½Ã ÃµÁ¦¿¬·Î 194(Áß¹®µ¿)','064-738-2811',40,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì„ ì¹˜ê³¼ì˜ì›','ì œì£¼ ì„œê·€í¬ì‹œ ì²œì œì—°ë¡œ 194(ì¤‘ë¬¸ë™)','064-738-2811',40,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '¿©Çà Áß Ä¡ÅëÀ¸·Î Èûµå½Ã´Ù¸é ÀÌ°÷À¸·Î ¿À¼¼¿ä~',
+    'ì—¬í–‰ ì¤‘ ì¹˜í†µìœ¼ë¡œ íž˜ë“œì‹œë‹¤ë©´ ì´ê³³ìœ¼ë¡œ ì˜¤ì„¸ìš”~',
     4,'Y',1201,82
 );  
 
@@ -593,43 +592,43 @@ VALUES(
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'´Ù³ªÇÑÀÇ¿ø','Á¦ÁÖ Á¦ÁÖ½Ã Áß¾Ó·Î 77 2Ãþ(ÀÌµµ1µ¿)','064-721-0050',40,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ë‹¤ë‚˜í•œì˜ì›','ì œì£¼ ì œì£¼ì‹œ ì¤‘ì•™ë¡œ 77 2ì¸µ(ì´ë„1ë™)','064-721-0050',40,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '´Ù³ªÇÑÀÇ¿ø °¡Á·À» µ¹º¸µí ÃÖ¼±À» ´ÙÇÏ°Ú½À´Ï´Ù.',
+    'ë‹¤ë‚˜í•œì˜ì› ê°€ì¡±ì„ ëŒë³´ë“¯ ìµœì„ ì„ ë‹¤í•˜ê² ìŠµë‹ˆë‹¤.',
     7,'Y',11,49
 );  
 
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'Á¦ÁÖÇÑ¶óº´¿ø ÀÀ±Þ½Ç','Á¦ÁÖ Á¦ÁÖ½Ã µµ·É·Î 65 ÇÑ¶óº´¿ø','064-740-5158',50,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì œì£¼í•œë¼ë³‘ì› ì‘ê¸‰ì‹¤','ì œì£¼ ì œì£¼ì‹œ ë„ë ¹ë¡œ 65 í•œë¼ë³‘ì›','064-740-5158',50,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    '24½Ã°£ ¿î¿µÇÕ´Ï´Ù. ',
+    '24ì‹œê°„ ìš´ì˜í•©ë‹ˆë‹¤. ',
     47,'Y',131,479
 );      
 
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'¼­±ÍÆ÷ÀÇ·á¿ø ÀÀ±Þ½Ç','Á¦ÁÖ ¼­±ÍÆ÷½Ã µ¿È«µ¿ 1530','064-730-3001',50,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì„œê·€í¬ì˜ë£Œì› ì‘ê¸‰ì‹¤','ì œì£¼ ì„œê·€í¬ì‹œ ë™í™ë™ 1530','064-730-3001',50,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    'ºü¸¥ Á¶Ä¡¸¦ ÃëÇØµå¸®°Ú½À´Ï´Ù. ',
+    'ë¹ ë¥¸ ì¡°ì¹˜ë¥¼ ì·¨í•´ë“œë¦¬ê² ìŠµë‹ˆë‹¤. ',
     8,'Y',108,490
 );      
 
 INSERT INTO 
     areainfo
 VALUES(
-    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'Á¦ÁÖ´ëÇÐ±³º´¿ø ÀÀ±Þ½Ç','Á¦ÁÖ Á¦ÁÖ½Ã ¾Æ¶õ13±æ 15','064-717-1900',50,
+    (SELECT NVL(MAX(ano)+1,1) FROM areainfo),'ì œì£¼ëŒ€í•™êµë³‘ì› ì‘ê¸‰ì‹¤','ì œì£¼ ì œì£¼ì‹œ ì•„ëž€13ê¸¸ 15','064-717-1900',50,
     (SELECT NVL(MAX(apno)+1,1) FROM areainfo),
-    'Á¦ÁÖ´ëÇÐ±³ ÁÖº¯ ÀÀ±Þ½ÇÀÔ´Ï´Ù. ',
+    'ì œì£¼ëŒ€í•™êµ ì£¼ë³€ ì‘ê¸‰ì‹¤ìž…ë‹ˆë‹¤. ',
     48,'Y',100,433
 );      
 
 SELECT * FROM areainfo;
 
 
--- Àå¼Ò»çÁøÅ×ÀÌºí
+-- ìž¥ì†Œì‚¬ì§„í…Œì´ë¸”
 CREATE TABLE aphoto(
     apno NUMBER(10)
         CONSTRAINT APHOTO_APNO_FK REFERENCES areainfo(apno)
@@ -652,103 +651,95 @@ CREATE TABLE aphoto(
 INSERT INTO 
     aphoto
 VALUES(
-    1,'noimage.jpg','¼·ÁöÄÚÁö1.jpg',200 * 100,'/img/area/',10
+    1,'noimage.jpg','ì„­ì§€ì½”ì§€1.jpg',200 * 100,'/img/area/',10
 );
 
 INSERT INTO 
     aphoto
 VALUES(
-    1,'noimage.jpg','¼·ÁöÄÚÁö2.jpg',200 * 100,'/img/area/',10
+    1,'noimage.jpg','ì„­ì§€ì½”ì§€2.jpg',200 * 100,'/img/area/',10
 );
 
 INSERT INTO 
     aphoto
 VALUES(
-    2,'noimage.jpg','»ç¶ó¿À¸§1.jpg',200 * 100,'/img/area/',10
+    2,'noimage.jpg','ì‚¬ë¼ì˜¤ë¦„1.jpg',200 * 100,'/img/area/',10
 );
 
 INSERT INTO 
     aphoto
 VALUES(
-    2,'noimage.jpg','»ç¶ó¿À¸§2.jpg',200 * 100,'/img/area/',10
+    2,'noimage.jpg','ì‚¬ë¼ì˜¤ë¦„2.jpg',200 * 100,'/img/area/',10
 );
 
 INSERT INTO 
     aphoto
 VALUES(
-    3,'noimage.jpg','°¡ÆÄµµ1.jpg',200 * 100,'/img/area/',10
-);
-
-
-INSERT INTO 
-    aphoto
-VALUES(
-    3,'noimage.jpg','°¡ÆÄµµ4.jpg',200 * 100,'/img/area/',10
-);
-
-INSERT INTO 
-    aphoto
-VALUES(
-    4,'noimage.jpg','¼Û¾Ç»ê1.jpg',200 * 100,'/img/area/',10
+    3,'noimage.jpg','ê°€íŒŒë„1.jpg',200 * 100,'/img/area/',10
 );
 
 
 INSERT INTO 
     aphoto
 VALUES(
-    4,'noimage.jpg','¼Û¾Ç»ê2.jpg',200 * 100,'/img/area/',10
+    3,'noimage.jpg','ê°€íŒŒë„4.jpg',200 * 100,'/img/area/',10
 );
 
 INSERT INTO 
     aphoto
 VALUES(
-    5,'noimage.jpg','Á¦ÀÌÈúÈ£ÅÚ.jpg',200 * 100,'/img/area/',20
-);
-
-
-INSERT INTO 
-    aphoto
-VALUES(
-    6,'noimage.jpg','À¯Å¾À¯ºí·¹½ºÈ£ÅÚ.jpg',200 * 100,'/img/area/',20
+    4,'noimage.jpg','ì†¡ì•…ì‚°1.jpg',200 * 100,'/img/area/',10
 );
 
 
 INSERT INTO 
     aphoto
 VALUES(
-    7,'noimage.jpg','´õ¼î¾îÈ£ÅÚ.jpg',200 * 100,'/img/area/',20
+    4,'noimage.jpg','ì†¡ì•…ì‚°2.jpg',200 * 100,'/img/area/',10
+);
+
+INSERT INTO 
+    aphoto
+VALUES(
+    5,'noimage.jpg','ì œì´íží˜¸í…”.jpg',200 * 100,'/img/area/',20
 );
 
 
 INSERT INTO 
     aphoto
 VALUES(
-    8,'noimage.jpg','¼º»ê¿ÁÅ¾.jpg',200 * 100,'/img/area/',30
+    6,'noimage.jpg','ìœ íƒ‘ìœ ë¸”ë ˆìŠ¤í˜¸í…”.jpg',200 * 100,'/img/area/',20
 );
-
-INSERT INTO 
-    aphoto
-VALUES(
-    9,'noimage.jpg','´ã¾Æ·¡ ¼­±ÍÆ÷Á¡.jpg',200 * 100,'/img/area/',30
-);
-INSERT INTO 
-    aphoto
-VALUES(
-    10,'noimage.jpg','Á¦ÁÖÇÑ¶ó±¹¼ö1.jpg',200 * 100,'/img/area/',30
-);
-
-INSERT INTO 
-    aphoto
-VALUES(
-    10,'noimage.jpg','Á¦ÁÖÇÑ¶ó±¹¼ö2.jpg',200 * 100,'/img/area/',30
-);
-
 
 
 INSERT INTO 
     aphoto
 VALUES(
-    11,'noimage.jpg','´ÚÅÍ¾ç³»°ú.jpg',200 * 100,'/img/area/',40
+    7,'noimage.jpg','ë”ì‡¼ì–´í˜¸í…”.jpg',200 * 100,'/img/area/',20
+);
+
+
+INSERT INTO 
+    aphoto
+VALUES(
+    8,'noimage.jpg','ì„±ì‚°ì˜¥íƒ‘.jpg',200 * 100,'/img/area/',30
+);
+
+INSERT INTO 
+    aphoto
+VALUES(
+    9,'noimage.jpg','ë‹´ì•„ëž˜ ì„œê·€í¬ì .jpg',200 * 100,'/img/area/',30
+);
+INSERT INTO 
+    aphoto
+VALUES(
+    10,'noimage.jpg','ì œì£¼í•œë¼êµ­ìˆ˜1.jpg',200 * 100,'/img/area/',30
+);
+
+INSERT INTO 
+    aphoto
+VALUES(
+    10,'noimage.jpg','ì œì£¼í•œë¼êµ­ìˆ˜2.jpg',200 * 100,'/img/area/',30
 );
 
 
@@ -756,7 +747,7 @@ VALUES(
 INSERT INTO 
     aphoto
 VALUES(
-    12,'noimage.jpg','¼±Ä¡°úÀÇ¿ø.jpg',200 * 100,'/img/area/',40
+    11,'noimage.jpg','ë‹¥í„°ì–‘ë‚´ê³¼.jpg',200 * 100,'/img/area/',40
 );
 
 
@@ -764,7 +755,7 @@ VALUES(
 INSERT INTO 
     aphoto
 VALUES(
-    13,'noimage.jpg','´Ù³ªÇÑÀÇ¿ø.jpg',200 * 100,'/img/area/',40
+    12,'noimage.jpg','ì„ ì¹˜ê³¼ì˜ì›.jpg',200 * 100,'/img/area/',40
 );
 
 
@@ -772,45 +763,53 @@ VALUES(
 INSERT INTO 
     aphoto
 VALUES(
-    14,'noimage.jpg','Á¦ÁÖÇÑ¶óº´¿ø ÀÀ±Þ½Ç.jpg',200 * 100,'/img/area/',50
+    13,'noimage.jpg','ë‹¤ë‚˜í•œì˜ì›.jpg',200 * 100,'/img/area/',40
+);
+
+
+
+INSERT INTO 
+    aphoto
+VALUES(
+    14,'noimage.jpg','ì œì£¼í•œë¼ë³‘ì› ì‘ê¸‰ì‹¤.jpg',200 * 100,'/img/area/',50
 );
 
 
 INSERT INTO 
     aphoto
 VALUES(
-    15,'noimage.jpg','¼­±ÍÆ÷ÀÇ·á¿ø ÀÀ±Þ½Ç.jpg',200 * 100,'/img/area/',50
+    15,'noimage.jpg','ì„œê·€í¬ì˜ë£Œì› ì‘ê¸‰ì‹¤.jpg',200 * 100,'/img/area/',50
 );
 
 
 INSERT INTO 
     aphoto
 VALUES(
-    16,'noimage.jpg','Á¦ÁÖ´ëÇÐ±³º´¿ø ÀÀ±Þ½Ç.jpg',200 * 100,'/img/area/',50
+    16,'noimage.jpg','ì œì£¼ëŒ€í•™êµë³‘ì› ì‘ê¸‰ì‹¤.jpg',200 * 100,'/img/area/',50
 );
 
 SELECT * FROM aphoto;
 
--- ¸®ºäÁ¤º¸Å×ÀÌºí
+-- ë¦¬ë·°ì •ë³´í…Œì´ë¸”
 
 create table review (
-    rno NUMBER(10) -- ±Û¹øÈ£
+    rno NUMBER(10) -- ê¸€ë²ˆí˜¸
         CONSTRAINT REVIEW_RNO_PK PRIMARY KEY,
-    ano NUMBER(10) -- Àå¼Ò¹øÈ£
+    ano NUMBER(10) -- ìž¥ì†Œë²ˆí˜¸
         CONSTRAINT REVIEW_ANO_FK REFERENCES areainfo(ano)
         CONSTRAINT REVIEW_ANO_NN NOT NULL,
     rtitle VARCHAR2(50 CHAR)
-        CONSTRAINT REVIEW_TITLE_NN NOT NULL,   -- ±Û Á¦¸ñ
+        CONSTRAINT REVIEW_TITLE_NN NOT NULL,   -- ê¸€ ì œëª©
     rbody VARCHAR2(500 CHAR)
-        CONSTRAINT REVIEW_BODY_NN NOT NULL, -- ±Û ³»¿ë
+        CONSTRAINT REVIEW_BODY_NN NOT NULL, -- ê¸€ ë‚´ìš©
     rpno NUMBER(10)
         CONSTRAINT REVIEW_RPNO_UK UNIQUE
-        CONSTRAINT REVIEW_RPNO_NN NOT NULL, -- ¾÷·Îµå »çÁø
+        CONSTRAINT REVIEW_RPNO_NN NOT NULL, -- ì—…ë¡œë“œ ì‚¬ì§„
     rdate DATE  DEFAULT sysdate
         CONSTRAINT REVIEW_RDATE_NN NOT NULL,
     rgrade NUMBER
         CONSTRAINT REVIEW_GRADE_NN NOT NULL
-        CONSTRAINT REVIEW_GRADE_CK CHECK ( rgrade IN (0, 0.5 , 1 , 1.5 , 2 , 2.5 , 3 , 3.5 , 4 , 4.5 , 5)), -- Àå¼Ò ÆòÁ¡
+        CONSTRAINT REVIEW_GRADE_CK CHECK ( rgrade IN (0, 0.5 , 1 , 1.5 , 2 , 2.5 , 3 , 3.5 , 4 , 4.5 , 5)), -- ìž¥ì†Œ í‰ì 
     rhit NUMBER(10) DEFAULT 0
         CONSTRAINT REVIEW_HIT_NN NOT NULL,
     isshow CHAR(1) DEFAULT 'Y'
@@ -820,64 +819,64 @@ create table review (
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),2,'»ç¶ó ¿À¸§ ´Ù³à¿Ô¾î¿ä~','¿À¸§ÀÌ ¾Æ´Ï¶ó »ç¶ó»ê °°¾Æ¿ä. ±×·¯³ª ³Ê¹« ¾Æ¸§´Ù¿ö¼­ Èûµç °Íµµ ÀØ¾ú´ä´Ï´Ù.',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),2,'ì‚¬ë¼ ì˜¤ë¦„ ë‹¤ë…€ì™”ì–´ìš”~','ì˜¤ë¦„ì´ ì•„ë‹ˆë¼ ì‚¬ë¼ì‚° ê°™ì•„ìš”. ê·¸ëŸ¬ë‚˜ ë„ˆë¬´ ì•„ë¦„ë‹¤ì›Œì„œ íž˜ë“  ê²ƒë„ ìžŠì—ˆë‹µë‹ˆë‹¤.',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2020/10/31',5,50,'Y'
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),3,'Ã»º¸¸®°¡ ÃãÀ» ÁÖ³×¿ä','Ã»º¸¸®, À¯Ã¤²É, ÆÄµµÀÇ Á¶È­ ÃÖ°í!!',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),3,'ì²­ë³´ë¦¬ê°€ ì¶¤ì„ ì£¼ë„¤ìš”','ì²­ë³´ë¦¬, ìœ ì±„ê½ƒ, íŒŒë„ì˜ ì¡°í™” ìµœê³ !!',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2020/10/31',5,30,'Y'
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),7,'´õ¼î¾îÈ£ÅÚ ´Ù³à¿Ô¾î¿ä~','ºä´Â Á¤¸» ÁÁÀºµ¥ Á» ºñ½Î³×¿ä.. ±×·¡µµ ÁÁÀº Ãß¾ïÀÌ µÇ¾î Çàº¹ÇÕ´Ï´Ù. ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),7,'ë”ì‡¼ì–´í˜¸í…” ë‹¤ë…€ì™”ì–´ìš”~','ë·°ëŠ” ì •ë§ ì¢‹ì€ë° ì¢€ ë¹„ì‹¸ë„¤ìš”.. ê·¸ëž˜ë„ ì¢‹ì€ ì¶”ì–µì´ ë˜ì–´ í–‰ë³µí•©ë‹ˆë‹¤. ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2020/08/01',4,20,'Y'
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),9,'ÀÎ»ý¸ÀÁý ´ã¾Æ·¡ ¼­±ÍÆ÷Á¡','ºñ¸°°ÍÀ» ½È¾îÇÏ´Âµ¥ °£Àåµü»õ¿ì¹ä ÈíÀÔÇß³×¿ä. ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),9,'ì¸ìƒë§›ì§‘ ë‹´ì•„ëž˜ ì„œê·€í¬ì ','ë¹„ë¦°ê²ƒì„ ì‹«ì–´í•˜ëŠ”ë° ê°„ìž¥ë”±ìƒˆìš°ë°¥ í¡ìž…í–ˆë„¤ìš”. ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2019/05/01',5,65,'Y'
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),10,'TV¿¡ ³ª¿Â ¸ÀÁýÀ» °¡´Ù´Ï','Áý¿¡ µ¹¾Æ¿À´Â ±æ¿¡ »ý°¢³ª´Â ¿­¹ä, ¶Ç¸Ô°í ½Í³×¿ä ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),10,'TVì— ë‚˜ì˜¨ ë§›ì§‘ì„ ê°€ë‹¤ë‹ˆ','ì§‘ì— ëŒì•„ì˜¤ëŠ” ê¸¸ì— ìƒê°ë‚˜ëŠ” ì—´ë°¥, ë˜ë¨¹ê³  ì‹¶ë„¤ìš” ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2018/07/01',4.5,34,'Y'
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),12,'¿©Çà Áß Ä¡°ú ÈÄ±â','¿©ÇàÀ» °¬´Âµ¥ Ä¡¾Æ°¡ ³Ê¹« ¾ÆÆÄ¼­ Ä¡°ú ´Ù³à¿Ô¾î¿ä. 
-    ´öºÐ¿¡ ÀÌÁ¨ ³ª¾ÆÁ³¾î¿ä ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),12,'ì—¬í–‰ ì¤‘ ì¹˜ê³¼ í›„ê¸°','ì—¬í–‰ì„ ê°”ëŠ”ë° ì¹˜ì•„ê°€ ë„ˆë¬´ ì•„íŒŒì„œ ì¹˜ê³¼ ë‹¤ë…€ì™”ì–´ìš”. 
+    ë•ë¶„ì— ì´ì   ë‚˜ì•„ì¡Œì–´ìš” ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2017/07/01',3.5,25,'Y'
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),13,'ÇÑÀÇ¿øÀ» ´Ù³à¿Ô½À´Ï´Ù. ','Á÷¿øÀÌ ºÒÄ£ÀýÇØ¼­ ´ÙÀ½¿¡´Â °¡°í ½ÍÁö ¾Ê½À´Ï´Ù. ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),13,'í•œì˜ì›ì„ ë‹¤ë…€ì™”ìŠµë‹ˆë‹¤. ','ì§ì›ì´ ë¶ˆì¹œì ˆí•´ì„œ ë‹¤ìŒì—ëŠ” ê°€ê³  ì‹¶ì§€ ì•ŠìŠµë‹ˆë‹¤. ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2018/06/11',3,15,'Y'
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),15,'Á×´Ù »ì¾Æ³µ¾î¿ä ','¹ã¿¡ ±ÞÇÏ°Ô Ã¼ÇÏ´Â ¹Ù¶÷¿¡ 
-    ÀáÀ» ÀÚÁö ¸øÇÏ´Ù°¡ ÀÀ±Þ½ÇÀ» ´Ù³à¿Ô½À´Ï´Ù. ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),15,'ì£½ë‹¤ ì‚´ì•„ë‚¬ì–´ìš” ','ë°¤ì— ê¸‰í•˜ê²Œ ì²´í•˜ëŠ” ë°”ëžŒì— 
+    ìž ì„ ìžì§€ ëª»í•˜ë‹¤ê°€ ì‘ê¸‰ì‹¤ì„ ë‹¤ë…€ì™”ìŠµë‹ˆë‹¤. ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2019/11/11',4,53,'Y'
 );
 
 select * from review;
 
--- ¸®ºä»çÁøÅ×ÀÌºí
+-- ë¦¬ë·°ì‚¬ì§„í…Œì´ë¸”
 CREATE TABLE rphoto(
     rpno NUMBER(10)
         CONSTRAINT RPHOTO_RPNO_FK REFERENCES review(rpno)
@@ -899,55 +898,55 @@ CREATE TABLE rphoto(
 INSERT INTO
     rphoto
 VALUES(
-    1,'noimage.jpg','»ç¶ó¿À¸§1.jpg',200*100,'img/review/',10
+    1,'noimage.jpg','ì‚¬ë¼ì˜¤ë¦„1.jpg',200*100,'img/review/',10
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    1,'noimage.jpg','»ç¶ó¿À¸§3.jpg',200*100,'img/review/',10
+    1,'noimage.jpg','ì‚¬ë¼ì˜¤ë¦„3.jpg',200*100,'img/review/',10
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    2,'noimage.jpg','°¡ÆÄµµ3.jpg',200*100,'img/review/',10
+    2,'noimage.jpg','ê°€íŒŒë„3.jpg',200*100,'img/review/',10
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    2,'noimage.jpg','°¡ÆÄµµ4.jpg',200*100,'img/review/',10
+    2,'noimage.jpg','ê°€íŒŒë„4.jpg',200*100,'img/review/',10
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    3,'noimage.jpg','´õ¼î¾îÈ£ÅÚ.jpg',200*100,'img/review/',20
+    3,'noimage.jpg','ë”ì‡¼ì–´í˜¸í…”.jpg',200*100,'img/review/',20
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    4,'noimage.jpg','´ã¾Æ·¡¼­±ÍÆ÷Á¡2.jpg',200*100,'img/review/',30
+    4,'noimage.jpg','ë‹´ì•„ëž˜ì„œê·€í¬ì 2.jpg',200*100,'img/review/',30
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    5,'noimage.jpg','ÇÑ¶ó±¹¼ö2.jpg',200*100,'img/review/',30
+    5,'noimage.jpg','í•œë¼êµ­ìˆ˜2.jpg',200*100,'img/review/',30
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    6,'noimage.jpg','Ä¡°úÈÄ±â.jpg',200*100,'img/review/',40
+    6,'noimage.jpg','ì¹˜ê³¼í›„ê¸°.jpg',200*100,'img/review/',40
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    7,'noimage.jpg','ÇÑÀÇ¿ø.jpg',200*100,'img/review/',40
+    7,'noimage.jpg','í•œì˜ì›.jpg',200*100,'img/review/',40
 );
 
 INSERT INTO
@@ -960,7 +959,7 @@ VALUES(
 SELECT * FROM RPHOTO ;
 commit;
 
--- Âü°í
+-- ì°¸ê³ 
 SELECT 
     mname, m.mno,u.dno,dname
 FROM 

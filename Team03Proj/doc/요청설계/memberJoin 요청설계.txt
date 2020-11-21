@@ -1,0 +1,7 @@
+------------------------------------------------------------
+# 회원가입 페이지 폼보기 요청
+요청내용 : /cls/333/MemberJoin.cls
+파라미터 : 무
+컨트롤러 : com.increpas.cls.controller.MemberJoin
+뷰	  : /WEB-INF/views/com/increpas/cls/333/MemberJoin.jsp
+------------------------------------------------------------

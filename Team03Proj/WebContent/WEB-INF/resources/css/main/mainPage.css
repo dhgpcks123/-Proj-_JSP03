@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
-
 .slides {
     padding: 0;
     width: 303px;
@@ -58,7 +57,6 @@
     font-size: 80pt;
     text-align: center;
     line-height: 180px;
-    font-family: "Varela Round", sans-serif;
     background-color: rgba(255, 255, 255, .3);
     text-shadow: 0px 0px 15px rgb(119, 119, 119);
 }
