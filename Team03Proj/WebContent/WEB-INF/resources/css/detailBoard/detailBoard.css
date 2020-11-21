@@ -1,8 +1,8 @@
 /*GLOBALS*/
 *{margin:0; padding:0; list-style:none;}
-a{text-decoration:none;color:#666;}
+a{text-decoration:none;}
 a:hover{color:#1bc1a3;}
-body, hmtl{background: #ecf0f1;}
+
 
 .StoreIMG:hover{
 	transform:scale(1.05);
@@ -51,11 +51,6 @@ body, hmtl{background: #ecf0f1;}
 
 #slider-wrap ul#slider li > div h3{
 	font-size:36px;
-}
-
-#slider-wrap ul#slider li > div span{
-	font-family: Neucha, Arial, sans serif;
-	font-size:21px;
 }
 
 #slider-wrap ul#slider li img{
