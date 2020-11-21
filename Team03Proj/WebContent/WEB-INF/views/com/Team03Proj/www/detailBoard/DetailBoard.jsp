@@ -139,6 +139,7 @@
 
 							</div>
 							<div style="display: flex; border-bottom: 1px solid #ECEAEB; padding-right:20px;">
+									<div style="padding-left: 5px; width:70%;">> 자려고 누웠는데 생각나는 맛입니다..</div>
 									<div><strong>dhgpcks123</strong></div>
 									<div style="margin-left: 45px;">작성일 : </div>
 									<div>2020. 12. 13</div>
@@ -163,6 +164,7 @@
 
 							</div>
 							<div style="display: flex; border-bottom: 1px solid #ECEAEB; padding-right:20px;">
+									<div style="padding-left: 5px; width:70%;">> 여기 졸맛탱</div>
 									<div><strong>woooooooow</strong></div>
 									<div style="margin-left: 45px;">작성일 : </div>
 									<div>2020. 12. 10</div>
@@ -188,14 +190,8 @@
 
 
 						<footer style="display: flex; flex-direction: column;  margin-top: 50px; margin-left: 60px; margin-right: 40px;">
-							<form method="POST" action="#" id="wReviewfrm" name="wReviewfrm">
-								<!-- file추가 -->
-								<div>
-								<input type="file" style="display: inline-block; width: 500px;" id="file1">
-								<input type="file" style="display: none; width: 500px;" id="file2">
-								<input type="file" style="display: none; width: 500px;" id="file3">
-								<input type="file" style="display: none; width: 500px;" id="file4">
-								</div>
+							<form method="POST" encType="multipart" action="#" id="wReviewfrm" name="wReviewfrm">
+							
 								<!-- 별 -->
 								<div class="starRev w3-right" style="display:inline-block; margin-left: 15px;">
 								 	<p id="star_grade">
@@ -208,9 +204,18 @@
 								</div>
 									
 								<!-- review body추가 -->
+								<input type="text" placeholder="글 제목" style="margin-top:40px; border:none; padding: 5px; border-top: 1px solid gray;">
 								<textarea style="width: 100%; height: 200px; margin-bottom: 5px; padding: 20px;" placeholder="이 곳에 리뷰를 작성하세요 :)"></textarea>
 								
 								<div class="w3-button w3-amber w3-right" id="wsend" style="margin-bottom: 30px; width: 150px;">리뷰 작성</div>
+								
+									<!-- file추가 -->
+								<div>
+								<input type="file" style="display: inline-block; width: 500px;" id="file1">
+								<input type="file" style="display: none; width: 500px;" id="file2">
+								<input type="file" style="display: none; width: 500px;" id="file3">
+								<input type="file" style="display: none; width: 500px;" id="file4">
+								</div>
 							</form>
 						</footer>
 
