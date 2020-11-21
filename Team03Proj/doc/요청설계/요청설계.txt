@@ -15,4 +15,4 @@
 파라미터	: 무
 컨트롤러	: com.Team03Proj.www.controller.bridgeBoard.BridgeBoard.cls
 뷰			: /WEB-INF/views/com/increpas/cls/bridgeBoard/BridgeBoard.jsp;
-----------------------------------------------------------------
+----------------------------------------------------------------;
