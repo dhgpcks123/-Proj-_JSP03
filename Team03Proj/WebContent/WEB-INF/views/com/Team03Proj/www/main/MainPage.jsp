@@ -444,7 +444,8 @@
 						placeholder="회원아이디"> <input type="password"
 						style="width: 20%; padding-left: 10px;" placeholder="비밀번호">
 					<div class="w3-button">로그인</div>
-					<div class="w3-button" style="margin-right: 50px;">회원가입</div>
+					<div class="w3-button w3-hover-lime" style="margin-right: 50px;" id="member">
+						<a href="/Team03Proj/memberJoin.cls">회원가입</a></div>
 				</div>
 			</div>
 		</div>
