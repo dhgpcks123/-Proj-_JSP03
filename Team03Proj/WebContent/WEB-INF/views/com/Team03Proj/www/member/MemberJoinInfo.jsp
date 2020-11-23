@@ -17,11 +17,11 @@
   <div class="w3-content w3-center w3-teal w3-container mw400700 radius1">
 
     <!-- STEP 1  -->
-    <div class="w3-padding-64 w3-padding-large " id="step1">
+    <div class="w3-padding-64 w3-padding-large" id="step1">
       <h1>회원가입</h1>
       <p class="w3-opacity">STEP 1</p>
 
-      <form class="w3-container w3-card w3-padding-32 w3-white w3-animate-left" action="" id="frm1">
+      <form class="w3-container w3-card w3-padding-32 w3-white w3-animate-left" action="/Team03Proj/memberJoinEnd.cls" id="memberJoinEnd">
 		<div class="w3-col mb10 pb20">
 				
 			<span class="input_chk">

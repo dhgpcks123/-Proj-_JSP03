@@ -327,3 +327,12 @@ span#wbtn {
 	width: 45px;
 	height: 45px;
 }
+
+.error {
+	display:none;
+    margin: 8px 0 -1px;
+    font-size: 10px;
+    line-height: 14px;
+    color: red;
+    padding-bottom: 20px;
+}
