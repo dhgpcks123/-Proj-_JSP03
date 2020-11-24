@@ -19,9 +19,10 @@ public class MainPage implements ClsMain {
 		
 		String view = "/main/MainPage";
 		req.setAttribute("isRedirect", false);
+	
 		
-		Double x = 0.;
-		Double y = 0.;
+		Double x =33.23574587023389;;
+		Double y =126.36351258114277;
 //		x = req.getParameter("x");
 //		y = req.getParameter("y");
 		
@@ -29,8 +30,7 @@ public class MainPage implements ClsMain {
 		InfoDao iDao = new InfoDao();
 		MapDao mDao = new MapDao();
 		
-		x= 33.23574587023389;
-		y= 126.36351258114277;
+
 		
 		ArrayList<ReviewVO> review = iDao.getReviewInfo(x,y);
 		ArrayList<InfoVO> store = iDao.getStoreInfo(x,y);

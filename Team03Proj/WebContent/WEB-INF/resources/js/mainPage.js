@@ -1,23 +1,41 @@
 $(document).ready(function(){
+		let byul =0
 
-	// 지도에 클릭 이벤트를 등록합니다
-	// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-	kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
-	    
-	    // 클릭한 위도, 경도 정보를 가져옵니다 
-	    var latlng = mouseEvent.latLng; 
-	    
-//	    // 마커 위치를 클릭한 위치로 옮깁니다
-//	    marker.setPosition(latlng);
-	    
-	    var Lmessage = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-	    Lmessage += '경도는 ' + latlng.getLng() + ' 입니다';
-		alert(Lmessage);	    
+		$('#byul1').click(function(){
+			byul = 1
+		});
+		$('#byul2').click(function(){
+			byul = 2
+		});
+		$('#byul3').click(function(){
+			byul = 3
+		});
+		$('#byul4').click(function(){
+			byul = 4
+		});
+		$('#byul5').click(function(){
+			byul = 5
+		});
+	// 리뷰 작성 버튼을 눌렀을 경우 리뷰 작성!
+	$('#wsend').click(function(){
+		var stitle = $('#reviewTitle').val();
+		var sbody = $('#reviewBody').val(); 
 
-//		$('#ax').val= latlng.getLat();
-//		$('#ay').val= latlng.getLng();
-//		$('#mfrm').submit();
+		$('#reviewStar').val(byul);
+		
+		// 데이터가 입력되었는지 확인하고...
+		if((stitle.trim() == '') || (sbody.trim() == '') || byul == 0 ){
+			alert('모든 정보를 작성해주세요');
+			return;
+		};
+		
+		$('#wReviewfrm').submit();
 	});
+
+
+
+
+
 	
 	
 });

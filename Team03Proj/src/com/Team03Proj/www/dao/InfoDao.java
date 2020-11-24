@@ -39,10 +39,13 @@ public class InfoDao {
 				rVO.setId(rs.getString("id"));
 				rVO.setRhit(rs.getInt("rhit"));
 				rVO.setRtitle(rs.getString("rtitle"));
-				rVO.setRbody(rs.getString("rbody"));
+				rVO.setRbody(rs.getString("rbody").replaceAll("\r\n", "<br>"));
 				rVO.setJoinDate(rs.getDate("rdate"));
 				rVO.setJoinTime(rs.getTime("rdate"));
 				rVO.setRgrade(rs.getInt("rgrade"));
+				rVO.setRpno(rs.getInt("rpno"));
+				rVO.setRx(rs.getDouble("rx"));
+				rVO.setRy(rs.getDouble("ry"));
 				
 				Connection rcon = db.getCon();
 						
@@ -111,9 +114,64 @@ public class InfoDao {
 			e.printStackTrace();
 		} finally {
 			db.close(rs);
-			db.close(stmt);
+			db.close(pstmt);
 			db.close(con);
 		}
 		return list;
 	}
+	
+	
+	public int addReview(ReviewVO rVO) {
+		int cnt = 0 ;
+		con = db.getCon();
+		String sql = iSQL.getSQL(iSQL.ADD_REVIEW);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, rVO.getId());
+			pstmt.setString(2, rVO.getRtitle() );
+			pstmt.setString(3, rVO.getRbody());
+			pstmt.setInt(4, rVO.getRgrade());
+			pstmt.setDouble(5, rVO.getRx());
+			pstmt.setDouble(6, rVO.getRy());
+			
+			cnt = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		
+		return cnt;
+	}
+	
+	public int addFile(ArrayList<FileVO> list) {
+		int cnt =0;
+		con = db.getCon();
+		String sql = iSQL.getSQL(iSQL.ADD_REVIEW_FILE);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			for(int i = 0 ; i<list.size(); i ++) {
+				pstmt.setInt(1, list.get(i).getRpno());
+				pstmt.setString(2, list.get(i).getRponame());
+				pstmt.setString(3, list.get(i).getRpsname());
+				pstmt.setInt(4, list.get(i).getRpsize());
+				pstmt.setString(5, list.get(i).getRpdir());
+				pstmt.setString(6, list.get(i).getRtno());
+			
+				cnt =+ pstmt.executeUpdate();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		
+		return cnt;
+	}
+	
 }

@@ -11,8 +11,21 @@ public class ReviewVO {
 	 private Date joinDate;
 	 private Time joinTime;
 	 private ArrayList<RphotoVO> rphotovoList;
+	 private double rx, ry;
 	 
 	 
+	public double getRx() {
+		return rx;
+	}
+	public void setRx(double rx) {
+		this.rx = rx;
+	}
+	public double getRy() {
+		return ry;
+	}
+	public void setRy(double ry) {
+		this.ry = ry;
+	}
 	public int getRno() {
 		return rno;
 	}

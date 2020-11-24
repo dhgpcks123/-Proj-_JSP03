@@ -15,4 +15,17 @@
 파라미터	: 무
 컨트롤러	: com.Team03Proj.www.controller.main.MainPage.cls
 뷰			: /WEB-INF/views/com/Team03Proj/www/main/MainPage.jsp;
-----------------------------------------------------------------;
+----------------------------------------------------------------
+# review 작성 요청
+요청 내용	: /Team03Proj/wReview.cls
+파라미터	: id, title, body, file, grade
+컨트롤러	: com.Team03Proj.www.controller.main.WReivewProc.cls
+뷰(redirect): (성공) /Team03Proj/main.cls#wReviewfrm
+			  (실패) /Team03Proj/main.cls
+----------------------------------------------------------------
+# MarkerList request
+요청 내용	: /Team03Proj/markerlist.cls
+파라미터	: 없음
+컨트롤러	: com.Team03Proj.www.controller.main.MarkerList.cls
+뷰(redirect): ajax통신
+----------------------------------------------------------------

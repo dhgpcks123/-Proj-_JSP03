@@ -4,6 +4,9 @@ public class InfoVO {
 	private int ano, atno, apno;
 	private String aname, aloc, atel, abody, adir, aponame, apsname;
 	
+	
+	
+
 	public int getAno() {
 		return ano;
 	}

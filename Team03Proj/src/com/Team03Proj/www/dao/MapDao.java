@@ -35,7 +35,6 @@ public class MapDao {
 				mVO.setAname(rs.getString("aname"));
 				mVO.setAx(rs.getDouble("ax"));
 				mVO.setAy(rs.getDouble("ay"));
-				
 				list.add(mVO);
 			}
 		} catch (Exception e) {

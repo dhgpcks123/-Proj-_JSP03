@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>MainPage</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<link rel="shortcut icon" href="#">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/cls.css">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/w3.css">
 <link rel="stylesheet" type="text/css"
@@ -19,6 +19,7 @@
 <script type="text/javascript" src="/Team03Proj/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/detailBoard.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/mainPage.js"></script>
+<script type="text/javascript" src="/Team03Proj/js/map.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0997e0901ce72cd4e333dc4602ad8e94"></script>
 </head>
 
@@ -71,6 +72,9 @@
 					style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
 					<i class="fas fa-at"></i> ${STORE.get(0).aloc}
 				</div>
+			
+				
+
 				<div style="font-size: 9pt; padding-left: 15px;">
 					<i class="fas fa-phone-volume"></i> ${STORE.get(0).atel}
 				</div>
@@ -120,9 +124,9 @@
 					</center>
 				</div>
 				<div style="padding: 3px; margin-top: 5px;">${REVIEW.get(0).rbody}</div>
-				<div class="w3-right">
+				<div class="w3-right" style=" margin-bottom: 30px;  margin-top :15px">
 					<a href="javascript:void(0)" class="w3-bar-item"
-						style="font-size: 10pt; margin-bottom: 30px;"
+						style="font-size: 10pt;"
 						onclick="document.getElementById('id01').style.display='block'">
 						<Strong>> 후기 더보기.. </Strong>
 					</a>
@@ -227,7 +231,7 @@
 
 						<!-- 하단페이지 구현 -->
 						<section
-							style="display: flex; flex-direction: column; border-top: 1px solid #ECEAEB; margin-left: 60px; margin-right: 40px;">
+							style="display: flex; flex-direction: column; border-top: 1px solid #ECEAEB; margin-left: 60px; margin-right: 40px;" id="wReviewSuccess">
 							<!-- 1 -->
 						<c:forEach var="data" items="${REVIEW}">
 							<div
@@ -282,24 +286,31 @@
 
 						<footer
 							style="display: flex; flex-direction: column; margin-top: 50px; margin-left: 60px; margin-right: 40px;">
-							<form method="POST" encType="multipart" action="#"
+							<form method="POST" encType="multipart/form-data" action="/Team03Proj/wReviewProc.cls"
 								id="wReviewfrm" name="wReviewfrm">
 
 								<!-- 별 -->
 								<div class="starRev w3-right"
 									style="display: inline-block; margin-left: 15px;">
 									<p id="star_grade">
-										<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a
-											href="#">★</a> <a href="#">★</a>
+										<a href="#" id="byul1">★</a> <a href="#" id="byul2">★</a> <a href="#" id="byul3">★</a> <a
+											href="#" id="byul4">★</a> <a href="#" id="byul5">★</a>
 									</p>
 								</div>
+								<input type="hidden" id="reviewId" name="reviewId" value="${SID}">
+								<input type="hidden" id="reviewStar" name="reviewStar">
+								<input type="hidden" id="reviewRtno" name="reviewRtno" value="${STORE.get(0).atno}">
+								<input type="hidden" id="reviewX" name="reviewX" value="${REVIEW.get(0).rx}">
+								<input type="hidden" id="reviewY" name="reviewY" value="${REVIEW.get(0).ry}">
+								<input type="hidden" id="rpno" name="rpno" value="${REVIEW.get(0).rpno}">
 
 								<!-- review body추가 -->
 								<input type="text" placeholder="글 제목"
-									style="margin-top: 40px; border: none; padding: 5px; border-top: 1px solid gray;">
+									style="margin-top: 40px; border: none; padding: 5px; border-top: 1px solid gray;" name="reviewTitle" id="reviewTitle">
+								
 								<textarea
 									style="width: 100%; height: 200px; margin-bottom: 5px; padding: 20px;"
-									placeholder="이 곳에 리뷰를 작성하세요 :)"></textarea>
+									placeholder="이 곳에 리뷰를 작성하세요 :)" id="reviewBody" name="reviewBody"></textarea>
 
 								<div class="w3-button w3-amber w3-right" id="wsend"
 									style="margin-bottom: 30px; width: 150px;">리뷰 작성</div>
@@ -307,11 +318,15 @@
 								<!-- file추가 -->
 								<div>
 									<input type="file" style="display: inline-block; width: 500px;"
-										id="file1"> <input type="file"
-										style="display: none; width: 500px;" id="file2"> <input
-										type="file" style="display: none; width: 500px;" id="file3">
+										id="file1" name="file">
+									<input type="file"
+										style="display: none; width: 500px;"
+										id="file2" name="file">
+									<input
+										type="file" style="display: none; width: 500px;"
+										id="file3" name="file">
 									<input type="file" style="display: none; width: 500px;"
-										id="file4">
+										id="file4" name="file">
 								</div>
 							</form>
 						</footer>
@@ -360,81 +375,19 @@
 			<div style="margin-left:30px;">
 				<div id="map" style="width:97%; height:700px;"></div>
 			<form method="POST" action="main.cls" id="mfrm" name="mfrm">
-<!-- 				<input type="hidden" name="ax" id="ax"> -->
-<!-- 				<input type="hidden" name="ay" id="ay"> -->
-					
+				<input type="hidden" name="ax" id="ax">
+				<input type="hidden" name="ay" id="ay">
 			</form>	
 				
 				
-	<script>
-		
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-	    mapOption = { 
-	        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-	        level: 3 // 지도의 확대 레벨
-	    };
-	
-	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-	var map = new kakao.maps.Map(mapContainer, mapOption); 
-	
-	
-	
-	
-	
-	// 지도를 클릭한 위치에 표출할 마커입니다
-	var marker = new kakao.maps.Marker({ 
-	    // 지도 중심좌표에 마커를 생성합니다 
-	    position: map.getCenter() 
-	}); 
-	
-	// 지도에 마커를 표시합니다
-	marker.setMap(map);
-	
-	// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
-	var mapTypeControl = new kakao.maps.MapTypeControl();
-	
-	// 지도 타입 컨트롤을 지도에 표시합니다
-	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-	
-	// 마커를 표시할 위치와 title 객체 배열입니다 
-	var positions = [
-		<c:forEach var="data" items="${MAPLIST}">
-			{
-		        title: '${data.aname}', 
-		        latlng: new kakao.maps.LatLng('${data.ax}', '${data.ay}')
-		    },
-		</c:forEach>
-		    
-	];
-	
-	// 마커 이미지의 이미지 주소입니다
-	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-	    
-	for (var i = 0; i < positions.length; i ++) {
-	    
-	    // 마커 이미지의 이미지 크기 입니다
-	    var imageSize = new kakao.maps.Size(24, 35); 
-	    
-	    // 마커 이미지를 생성합니다    
-	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-	    
-	    // 마커를 생성합니다
-	    var marker = new kakao.maps.Marker({
-	        map: map, // 마커를 표시할 지도
-	        position: positions[i].latlng, // 마커를 표시할 위치
-	        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-	        image : markerImage // 마커 이미지 
-	    });
-	};
-
-	
-	</script>
 			
 			</div>	
 		</div>
 	</div>
 	<!-- 여기까지 페이지 컨텐트 -->
-
+	<script>
+	
+	</script>
 
 
 </body>
