@@ -78,7 +78,7 @@
 					style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
 					<!-- <i class="fas fa-at"></i> --> <b>현재 위치</b> 
 					<div
-						id="sujin" style="font-size: 9pt; ">
+						id="text" style="font-size: 9pt; ">
 					</div>
 				</div>
 				
@@ -456,11 +456,10 @@
 	kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 	    searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
 	        if (status === kakao.maps.services.Status.OK) {
-	            var detailAddr = !!result[0].road_address ? '도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+	            var detailAddr = !!result[0].road_address ? '도로명주소 : ' + result[0].road_address.address_name + '<br />' : '';
 	            detailAddr += '지번 주소 : ' + result[0].address.address_name;
-	            alert(detailAddr);
 	            
-	            document.getElementById("sujin").innerHTML = detailAddr;
+	            document.getElementById("text").innerHTML = detailAddr;
 	           
 	           
 	            var content = '<div class="bAddr">' +

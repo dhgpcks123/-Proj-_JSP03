@@ -1,4 +1,7 @@
-/*$(document).ready(function(){
+
+/*
+	우선 모두 주석처리함
+$(document).ready(function(){
 
 	// 지도에 클릭 이벤트를 등록합니다
 	// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
