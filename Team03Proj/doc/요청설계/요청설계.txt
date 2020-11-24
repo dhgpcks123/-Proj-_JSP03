@@ -2,17 +2,17 @@
 					### detailBoard
 ================================================================
 # detailBoard보기 요청
-요청 내용	: /cls/detailBoard/detailBoard.cls
+요청 내용	: /Team03Proj/detailBoard/detailBoard.cls
 파라미터	: 무
 컨트롤러	: com.Team03Proj.www.controller.detailBoard.DetailBoard.cls
 뷰			: /WEB-INF/views/com/increpas/cls/detailBoard/DetailBoard.jsp;
 ----------------------------------------------------------------
 ================================================================
-					### detailBoard
+					### main
 ================================================================
-# bridgeBoard 보기요청
-요청 내용	: /cls/bridgeBoard/bridgeBoard.cls
+# main 보기요청
+요청 내용	: /Team03Proj/main.cls
 파라미터	: 무
-컨트롤러	: com.Team03Proj.www.controller.bridgeBoard.BridgeBoard.cls
-뷰			: /WEB-INF/views/com/increpas/cls/bridgeBoard/BridgeBoard.jsp;
+컨트롤러	: com.Team03Proj.www.controller.main.MainPage.cls
+뷰			: /WEB-INF/views/com/Team03Proj/www/main/MainPage.jsp;
 ----------------------------------------------------------------;

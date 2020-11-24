@@ -18,7 +18,7 @@ public class ClsDBCP {
 			// 1. context.xml 파일에 등록된 자원을 알아낸다.
 			InitialContext context = new InitialContext();
 			// 2. 그 중 필요한 자원을 얻어낸다.
-			ds = (DataSource)context.lookup("java:/comp/env/jdbc/TestDB");
+			ds = (DataSource)context.lookup("java:/comp/env/jdbc/sjDB");
 			// 찾을 이름 작성 규칙
 			// java:/comp/env/찾을 이름
 			// 따라서 ==> java:/comp/env/jdbc/TestDB
