@@ -32,27 +32,28 @@
 				</div>  	
 		  
 		    	<!-- 아이디  -->
-			 	<div class="w3-col info pb20">
-					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="아이디" required id="id" name="id">
-			 		<p class="w3-col w3-center" id="idmsg" style="display: none;"></p>
+			 	<div class="w3-col pb20">
+					<input class="w3-col m8 w3-input w3-padding-16 w3-border" type="text" placeholder="아이디" required id="id" name="id">
+					<div class="w3-col m3 w3-red w3-hover-orange w3-button w3-right w3-card w3-padding idck" id="idck">아이디<br>체크</div>
+			 		<span class="w3-col w3-center" id="idmsg" style="display: none;"></span>
 				</div>
 				<!-- 비밀번호  -->
-			 	<div class="w3-col info pb20">
+			 	<div class="w3-col  pb20">
 					<input class="w3-input w3-padding-16 w3-border" type="password" placeholder="비밀번호" required id="pw" name="pw">
-			 		<p class="w3-col w3-center" id="pwmsg" style="display: none;"></p>
+			 		<span class="w3-col w3-center" id="pwmsg" style="display: none;"></span>
 				</div>
 				<!-- 비밀번호 확인 -->
-			 	<div class="w3-col info pb20">
+			 	<div class="w3-col  pb20">
 					<input class="w3-input w3-padding-16 w3-border" type="password" placeholder="비밀번호 확인" required id="pw2" name="pw2">
-			 		<p class="w3-col w3-center" id="pw2msg" style="display: none;"></p>
+			 		<span class="w3-col w3-center" id="pw2msg" style="display: none;"></span>
 				</div>
 				<!-- 메일주소 -->
-			 	<div class="w3-col info mb10 pb20">
+			 	<div class="w3-col  mb10 pb20">
 					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="메일" required id="mail" name="mail">
-			 		<p class="w3-col w3-center" id="mailmsg" style="display: none;"></p>
+			 		<span class="w3-col w3-center" id="mailmsg" style="display: none;"></span>
 			   	</div>
 		
-			     <input type="reset" class="w3-button w3-red w3-left" id="reset"></button>
+			     <button class="w3-button w3-red w3-left" id="reset1">reset</button>
 			     <button class="w3-button w3-yellow w3-right" id="next1">다음</button>
 	  		</div>
 		</div>
@@ -74,18 +75,18 @@
 				<!-- 이름  -->
 				<div class="w3-col  pb20">
 					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="이름" required name="name" id="name">
-					<p class="w3-col w3-center" id="namemsg" style="display: none;"></p>
+					<span class="w3-col w3-center" id="namemsg" style="display: none;"></span>
 				</div>
 				<!-- 생년월일  -->
-				<div class="w3-col  pb20">
-					<input class="w3-third  w3-input w3-padding-16   w3-border" type="number" name="year" value="1988" min="1900", max="2020">
-					<input class="w3-third  w3-input w3-padding-16     w3-border" type="number" name="mouth" value="1" min="1", max="12">
-					<input class="w3-third  w3-input w3-padding-16   w3-border" type="number" name="day" value="1" min="1", max="31">
+				<div class="w3-col brith pb20">
+					<input class="w3-third  w3-input w3-padding-16  w3-border" type="number" name="year" id="year" value="1988" min="1900", max="2020">
+					<input class="w3-third  w3-input w3-padding-16  w3-border" type="number" name="mouth" id="mouth" value="6" min="1", max="12">
+					<input class="w3-third  w3-input w3-padding-16  w3-border" type="number" name="day" id="day" value="15" min="1", max="31">
 				</div>
 				<!-- 전화번호 -->
 				<div class="w3-col  pb20">
 					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="전화번호" required id="tel" name="tel">
-					<p class="w3-col w3-center" id="telmsg" style="display: none;"></p>
+					<span class="w3-col w3-center" id="telmsg" style="display: none;"></span>
 				</div>
 				<!-- 본인성별 -->
 				<div class="w3-col pb20">
@@ -93,13 +94,12 @@
 						<option selected>성별</option>
 						<option>남자</option>
 						<option>여자</option>
-						<option>선택 안함</option>
 					</select>
 				</div>
 				
 					
 				<button  class="w3-button w3-yellow w3-left "id="pre2">이전</button>
-				<input type="reset" class="w3-button w3-red w3-left" id="reset"></button>
+			    <button class="w3-button w3-red w3-left" id="reset2">reset</button>
 				<button  class="w3-button w3-yellow w3-right" id="next2">다음</button>
 			</div>
 		</div>
@@ -120,16 +120,16 @@
 					   
 				<!-- 혈액형  -->
 				<div class="w3-col  pb20">
-					<span class="w3-third w3-padding-16 w3-border" name="blood">혈액형</span>
+					<span class="w3-third w3-padding-16 w3-border" name="blood" id="blood"  >혈액형</span>
 					<div class="w3-third w3-padding-16 w3-border">
-						<select id="ph"  >
+						<select id="ph">
 							<option selected>모름</option>
 							<option>RH+</option>
 							<option>RH-</option>
 						</select>
 					</div>
 					<div class="w3-third w3-padding-16 w3-border">
-						<select id="abo"  >
+						<select id="abo">
 							<option selected>모름</option>
 							<option>A</option>
 							<option>B</option>
@@ -140,21 +140,21 @@
 				</div>
 				<!-- 긴급연락처 -->
 				<div class="w3-col  pb20">
-					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="긴급연락처"  name="stel">
+					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="긴급연락처"  name="stel" id="stel">
 				</div>
 				<!-- 긴급연락처와의 관계  -->
 				<div class="w3-col  pb20">
-					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="긴급연락처와의 관계"  name="stel_name">
+					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="긴급연락처와의 관계"  name="stel_name" id="stel_name">
 				</div>
 				<!-- 추가설명 -->
 				<div class="w3-col pb20">
-					<input class="w3-input w3-padding-16 w3-border" type="textarea" placeholder="참고사항을 입력하세요." name="text" >
+					<input class="w3-input w3-padding-16 w3-border" type="textarea" placeholder="참고사항을 입력하세요." name="text" id="text" >
 				</div>
 				
 						
 				<button  class="w3-button w3-yellow w3-left " id="pre3">이전</button>
-				<input type="reset" class="w3-button w3-red w3-left" id="reset"></button>
-				<button  class="w3-button w3-yellow w3-right" id="next3">다음</button>
+			    <button class="w3-button w3-red w3-left" id="reset3">reset</button>
+				<button  class="w3-button w3-yellow w3-right" id="next3">가입완료</button>
 			</div>
 		</div>
 	</div>
