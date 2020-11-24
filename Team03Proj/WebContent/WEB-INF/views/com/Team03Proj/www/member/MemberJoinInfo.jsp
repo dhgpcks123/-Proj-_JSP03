@@ -85,17 +85,29 @@
 				</div>
 				<!-- 전화번호 -->
 				<div class="w3-col  pb20">
-					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="전화번호" required id="tel" name="tel">
+					<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="숫자만 입력하세요." required id="tel" name="tel">
 					<span class="w3-col w3-center" id="telmsg" style="display: none;"></span>
 				</div>
 				<!-- 본인성별 -->
+			<div class="w3-col w3-center pb20">
+				<div class="w3-col l12 m12 w3-padding">
+					<div class="w3-half">
+						<input type="radio" class="w3-radio-medium gen" id="genM" name="gen" value="M"><span>&nbsp;남 자</span>
+					</div>
+					<div class="w3-half">
+						<input type="radio" class="w3-radio-medium gen" id="genF" name="gen" value="F"><span>&nbsp; 여 자</span>
+					</div>
+				</div>
+			</div>
+			<!-- 			
 				<div class="w3-col pb20">
-					<select id="gen" class="w3-col m12 w3-padding-16 " >
+					<select id="gen" class="w3-col m12 w3-padding-16 gen" >
 						<option selected>성별</option>
 						<option>남자</option>
 						<option>여자</option>
 					</select>
-				</div>
+				</div> 
+			-->
 				
 					
 				<button  class="w3-button w3-yellow w3-left "id="pre2">이전</button>
@@ -120,22 +132,32 @@
 					   
 				<!-- 혈액형  -->
 				<div class="w3-col  pb20">
-					<span class="w3-third w3-padding-16 w3-border" name="blood" id="blood"  >혈액형</span>
-					<div class="w3-third w3-padding-16 w3-border">
-						<select id="ph">
+					<span class="w3-col m12 w3-border " name="blood" id="blood"  >혈액형</span>
+					<div class="w3-col m5 mt5  w3-border w3-left">
+						<input type="radio" class="w3-radio-medium ph" id="phP" name="ph" value="plus"><span>&nbsp;PH+</span><br>
+						<input type="radio" class="w3-radio-medium p h" id="phM" name="ph" value="minus"><span>&nbsp;PH-</span>
+						<!-- 
+						<select class="ph" id="ph">
 							<option selected>모름</option>
 							<option>RH+</option>
 							<option>RH-</option>
 						</select>
+						 -->
 					</div>
-					<div class="w3-third w3-padding-16 w3-border">
-						<select id="abo">
+					<div class="w3-col m5 mt5 w3-border w3-right">
+						<input type="radio" class="w3-radio-medium abo" id="aboA" name="abo" value="A"><span>&nbsp;A</span>
+						<input type="radio" class="w3-radio-medium abo" id="aboB" name="abo" value="B"><span>&nbsp;B</span><br>
+						<input type="radio" class="w3-radio-medium abo" id="aboAB" name="abo" value="AB"><span>&nbsp;AB</span>
+						<input type="radio" class="w3-radio-medium abo" id="aboO" name="abo" value="O"><span>&nbsp;O</span>
+<!-- 
+						<select class="abo" id="abo">
 							<option selected>모름</option>
 							<option>A</option>
 							<option>B</option>
 							<option>AB</option>
 							<option>O</option>
 							</select>
+ -->
 					</div>
 				</div>
 				<!-- 긴급연락처 -->
