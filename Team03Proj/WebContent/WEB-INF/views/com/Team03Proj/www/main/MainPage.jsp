@@ -74,11 +74,18 @@
 				</c:forEach>
 				</ul>
 				<!--  slide img -->
-
 				<div
-					id="text" style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
-					<i class="fas fa-at"></i> ${STORE.get(0).aloc}
+					style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
+					<!-- <i class="fas fa-at"></i> --> <b>현재 위치</b> 
+					<div
+						id="text" style="font-size: 9pt; ">
+					</div>
 				</div>
+				
+				<div
+					style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
+					<!-- <i class="fas fa-at"></i> --> <b>장소 위치</b><br /> ${STORE.get(0).aloc}
+				</div><br /> 
 				<div style="font-size: 9pt; padding-left: 15px;">
 					<i class="fas fa-phone-volume"></i> ${STORE.get(0).atel}
 				</div>
@@ -326,8 +333,6 @@
 
 
 					</div>
-
-
 
 				</div>
 			</div>
