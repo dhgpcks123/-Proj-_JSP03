@@ -46,7 +46,6 @@ public class MarkerList implements ClsMain {
 					buff.append(" } ");
 				
 					buff.append(" ] ");
-				System.out.println(buff.toString());
 				
 				
 				return buff.toString();
