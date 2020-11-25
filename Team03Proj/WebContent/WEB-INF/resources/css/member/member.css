@@ -55,7 +55,10 @@
 .mb10 {
 	margin-bottom: 10px;
 }
-
+.mtb50 {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
 .txt11 {
 	font-size: 11pt;
 }
@@ -206,7 +209,9 @@
 .mh10 {
 	margin: 10px 0px;
 }
-
+.ml10{
+	margin: 0 10px 0;
+}
 .btn {
 	height: 20px;
 	line-height: 30%;
@@ -284,7 +289,9 @@ span#wbtn {
 .dfr {
 	height: 30px;
 }
-
+.idck{
+	font-size: 8pt;
+}
 .chk_all_txt {
     text-decoration: underline;
     word-break: break-all;
@@ -326,4 +333,13 @@ span#wbtn {
 .check_circle {
 	width: 45px;
 	height: 45px;
+}
+
+.error {
+	display:none;
+    margin: 8px 0 -1px;
+    font-size: 10px;
+    line-height: 14px;
+    color: red;
+    padding-bottom: 20px;
 }
