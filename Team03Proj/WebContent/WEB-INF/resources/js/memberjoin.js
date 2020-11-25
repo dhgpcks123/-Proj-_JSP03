@@ -285,7 +285,7 @@ $(document).ready(function(){
 		} else if (sid.length == 8 || sid.length == 12){
 			$('#step1').addClass('w3-hide');
 			$('#step1').attr('disabled', 'false');
-			$('#step3').removeClass('w3-hide');
+			$('#step2').removeClass('w3-hide');
 		}
 	});
 	// 회원가입 step2버튼 
@@ -319,6 +319,7 @@ $(document).ready(function(){
 			alert(' 성별을 선택해주세요');
 			$('#next2').stop();
 		} else if (sgen){
+			$('#step1').addClass('w3-hide');
 			$('#step2').addClass('w3-hide');
 			$('#step2').attr('disabled', 'false');
 			//alert('????');

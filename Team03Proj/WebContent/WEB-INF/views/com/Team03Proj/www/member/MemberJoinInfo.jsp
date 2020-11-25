@@ -14,10 +14,10 @@
 
 </head>
 <body>
- 	<form method="" action="" >
- 		<input type="hidden">
+ 	<form method="" action="" id="memberJoinEnd">
+<!--  		<input type="hidden">
  	</form>
- 	<form action="" id="memberJoinEnd">
+ 	<form action="" id="memberJoinEnd"> -->
 		<div class="w3-content w3-center w3-teal w3-container mw400700 radius1">
 			<!-- STEP 1  -->
 			<div class="w3-padding-64 w3-padding-large" id="step1">
