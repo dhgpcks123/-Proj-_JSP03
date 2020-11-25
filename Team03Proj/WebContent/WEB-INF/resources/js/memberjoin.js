@@ -282,14 +282,16 @@ $(document).ready(function(){
 		if(!sid || !spw || !spw2 || !smail){
 			alert('빈칸을 채워주세요');
 			$('#next1').stop();
-		} else if (sid != ""){
+		} else if (sid.length == 8 || sid.length == 12){
 			$('#step1').addClass('w3-hide');
-			$('#step2').removeClass('w3-hide');
+			$('#step1').attr('disabled', 'false');
+			$('#step3').removeClass('w3-hide');
 		}
 	});
 	// 회원가입 step2버튼 
 	$('#pre2').click(function(){
 		$('#step1').removeClass('w3-hide');
+		$('#step1').attr('disabled', 'true');
 		$('#step2').addClass('w3-hide');
 	});
 	$('#reset2').click(function(){
@@ -309,37 +311,44 @@ $(document).ready(function(){
 		var stel = $('#tel').val();
 		var sgen = $('.gen:checked').val();
 		
-		if(!sname /*|| !stel || !sgen*/){
+		if(!sname){
 			alert(' 이름을 채워주세요');
 		} else if(!stel){
 			alert(' 전화번호를 채워주세요');
 		} else if(!sgen){
 			alert(' 성별을 선택해주세요');
 			$('#next2').stop();
-		} else if ( sname != ""){
+		} else if (sgen){
 			$('#step2').addClass('w3-hide');
+			$('#step2').attr('disabled', 'false');
+			//alert('????');
 			$('#step3').removeClass('w3-hide');
 		}
 	});
 	// 회원가입 step3 버튼 
 	$('#pre3').click(function(){
 		$('#step2').removeClass('w3-hide');
+		$('#step2').attr('disabled', 'true');
 		$('#step3').addClass('w3-hide');
 	});
 	$('#reset3').click(function(){
-		$('#ph').val('모름');
-		$('#abo').val('모름');
+		$('#ph').val('');
+		$('#abo').val('');
 		$('#stel').val('');
 		$('#stel_name').val('');
 		$('#text').val('');
 	});
 	$('#next3').click(function(){
+		alert('check');
+		joinCheck();
 		joinAgree();
 	});
 
 
 	 // 개인정보 확인 후 가입내용 전송 
-    function joinAgree() {
+    function joinCheck() {
+		var res = true;
+		
 		var sid = $('#id').val();
 		var spw = $('#pw').val();
 		var smail = $('#mail').val();
@@ -355,17 +364,30 @@ $(document).ready(function(){
 		var sstel_name = $('#stel_name').val();
 		var stext = $('#text').val();
 		
-		alert(sid + '|' + spw + '|' + smail + '|' + 
+	/*	alert(sid + '|' + spw + '|' + smail + '|' + 
 			sname + '|' + syear + '|' + smouth + '|' + sday + '|' + stel + '|' + sgen + '|' + 
-			sph + '|' + sabo + '|' + sstel + '|' + sstel_name + '|' + stext);
+			sph + '|' + sabo + '|' + sstel + '|' + sstel_name + '|' + stext);*/
 		if(!(sid && spw && smail && 
 			sname && syear && smouth && sday && stel && sgen && 
 			sph && sabo && sstel && sstel_name && stext)){
-				return;
-			}
-		$('#memberJoinEnd').attr('action', ''); 
+				alert('항목을 입력해주세요');
+				res = false;
+		} else {
+			alert('입력에 이상이 없는지 확인해주세요.');
+			
+		}
+			
+		$('#memberJoinEnd').attr('method', 'POST'); 
+		$('#memberJoinEnd').attr('action', '/Team03Proj/memberJoinEnd.cls'); 
 		
+		return res;
+    }
+    function joinAgree() {
+        if (joinCheck() != true) {
+            return false;
+        }
         $("#memberJoinEnd").submit();
         return true;
     }
+
 });
