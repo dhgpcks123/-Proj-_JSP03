@@ -39,12 +39,13 @@ public class MainPage implements ClsMain {
 		InfoDao iDao = new InfoDao();
 		MapDao mDao = new MapDao();
 		
-
 		
 		ArrayList<ReviewVO> review = iDao.getReviewInfo(x,y);
 		ArrayList<InfoVO> store = iDao.getStoreInfo(x,y);
 		ArrayList<MapVO> maplist = mDao.getMapInfo();
 		
+		req.setAttribute("MAPx", x);
+		req.setAttribute("MAPy", y);
 		req.setAttribute("REVIEW", review);
 		req.setAttribute("STORE", store);
 		req.setAttribute("MAPLIST", maplist);

@@ -10,17 +10,19 @@
 <link rel="shortcut icon" href="#">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/cls.css">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/w3.css">
+<link rel="stylesheet" type="text/css" href="/Team03Proj/css/main/mapStyle.css">
 <link rel="stylesheet" type="text/css"
 	href="/Team03Proj/css/detailBoard/detailBoard.css">
 <link rel="stylesheet" type="text/css"
 	href="/Team03Proj/css/main/mainPage.css">
-<script src="https://kit.fontawesome.com/e6e9b86680.js"
-	crossorigin="anonymous"></script>
 <script type="text/javascript" src="/Team03Proj/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0997e0901ce72cd4e333dc4602ad8e94&libraries=services"></script>
 <script type="text/javascript" src="/Team03Proj/js/detailBoard.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/mainPage.js"></script>
+<script type="text/javascript" src="/Team03Proj/js/memberLogin.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/map.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0997e0901ce72cd4e333dc4602ad8e94"></script>
+<script src="https://kit.fontawesome.com/e6e9b86680.js"
+	crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -94,7 +96,7 @@
 				<div style="margin-bottom: 10px;">
 					<div style="display: block; font-size:14pt">${REVIEW.get(0).rtitle}</div>
 					<div style="display: block; font-size: 7pt;">${REVIEW.get(0).rdate}</div>
-					<div style="margin-bottom: 5px; display:block; text-align:right; font-size:16pt;">
+					<div style="margin-bottom: 5px; display:block; text-align:right; text-shadow:1px 1px 0 #444; color:yellow; font-size:16pt;">
 							<c:if test="${REVIEW.get(0).rgrade==5}">
 								★★★★★
 							</c:if>
@@ -110,7 +112,9 @@
 							<c:if test="${REVIEW.get(0).rgrade==1}">
 								★☆☆☆☆
 							</c:if>
+							<span style="color:black;">
 							 [${REVIEW.get(0).rgrade}/5]
+							</span>
 					</div>
 				</div>
 				
@@ -289,6 +293,10 @@
 							<form method="POST" encType="multipart/form-data" action="/Team03Proj/wReviewProc.cls"
 								id="wReviewfrm" name="wReviewfrm">
 
+							<c:if test="${empty sessionScope.SID}">
+								<div style="margin: 30px;">*로그인 하셔야 리뷰를 작성할 수 있습니다</div>
+							</c:if>
+							<c:if test="${not empty sessionScope.SID}">
 								<!-- 별 -->
 								<div class="starRev w3-right"
 									style="display: inline-block; margin-left: 15px;">
@@ -314,7 +322,6 @@
 
 								<div class="w3-button w3-amber w3-right" id="wsend"
 									style="margin-bottom: 30px; width: 150px;">리뷰 작성</div>
-
 								<!-- file추가 -->
 								<div>
 									<input type="file" style="display: inline-block; width: 500px;"
@@ -328,6 +335,7 @@
 									<input type="file" style="display: none; width: 500px;"
 										id="file4" name="file4">
 								</div>
+							</c:if>
 							</form>
 						</footer>
 
@@ -356,15 +364,25 @@
 				<div class="w3-col m12 l12 s12" style="padding-right: 60px;">
 					내 정보보기 <i class="fas fa-user-cog"></i>
 				</div>
-				<div>
-					<input type="text"
-						style="width: 20%; padding-left: 10px; padding-left: 10px"
-						placeholder="회원아이디"> <input type="password"
-						style="width: 20%; padding-left: 10px;" placeholder="비밀번호">
-					<div class="w3-button">로그인</div>
-					<div class="w3-button w3-hover-lime" style="margin-right: 50px;" id="member">
+				<c:if test="${not empty sessionScope.SID}">
+					<div style="padding-right: 60px;">
+						<div style="padding-right: 10px; display:inline-block;">[ ${sessionScope.SID} ] 님 환영합니다.</div>
+						<div class="w3-button w3-amber" id="logoutbtn" style="display:inline-block;">로그아웃</div>
+					</div>
+				</c:if>
+				<c:if test="${empty sessionScope.SID}">
+				<form method="POST" action="/Team03Proj/memberLoginProc.cls" id="loginFrm" name="loginFrm">
+						<input type="text"
+						style="width: 15%; padding-left: 10px; padding-left: 10px"
+						placeholder="회원아이디" name="id" id="id">
+					
+						<input type="password"
+						style="width: 15%; padding-left: 10px;" placeholder="비밀번호" name="pw" id="pw">
+						<div class="w3-button w3-amber" id="loginbtn">로그인</div>
+					<div class="w3-button w3-amber w3-hover-lime" style="margin-right: 50px;" id="member">
 						<a href="/Team03Proj/memberJoin.cls">회원가입</a></div>
-				</div>
+				</form>	
+				</c:if>
 			</div>
 		</div>
 
@@ -374,21 +392,40 @@
 			
 							<!-- 지도를 표시할 div 입니다 -->
 			<div style="margin-left:30px;">
-				<div id="map" style="width:97%; height:700px;"></div>
+				
+<!-- map -->			
+<div class="map_wrap">
+ <div id="map" style="width:97%; height:700px;"></div>
+
+    <hr>
+    <ul id="placesList"></ul>
+    <div id="pagination"></div>
+</div>
+<!-- map -->			
+
+
 			<form method="POST" action="/Team03Proj/main.cls" id="mfrm" name="mfrm">
-				<input type="hidden" name="ax" id="ax">
-				<input type="hidden" name="ay" id="ay">
+				<input type="hidden" name="ax" id="ax" value="${MAPx}">
+				<input type="hidden" name="ay" id="ay" value="${MAPy}">
 			</form>	
 				
 				
 			
 			</div>	
 		</div>
+		
+    
 	</div>
 	<!-- 여기까지 페이지 컨텐트 -->
-	<script>
 	
-	</script>
+
+
+    
+    
+    
+    
+</div>
+
 
 
 </body>
