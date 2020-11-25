@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>MainPage</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="shortcut icon" href="#">
+
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/cls.css">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/w3.css">
 <link rel="stylesheet" type="text/css"
@@ -19,8 +19,55 @@
 <script type="text/javascript" src="/Team03Proj/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/detailBoard.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/mainPage.js"></script>
-<script type="text/javascript" src="/Team03Proj/js/map.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0997e0901ce72cd4e333dc4602ad8e94"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=79522878be27fd519cad54cd57b6d0ba&libraries=services"></script>
+<!-- 키워드 장소 검색하고 목록으로 표출 -->
+<style>
+	.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+	.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+	.map_wrap {position:relative;width:100%;height:500px;}
+	#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+	.bg_white {background:#fff;}
+	#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+	#menu_wrap .option{text-align: center;}
+	#menu_wrap .option p {margin:10px 0;}  
+	#menu_wrap .option button {margin-left:5px;}
+	#placesList li {list-style: none;}
+	#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+	#placesList .item span {display: block;margin-top:4px;}
+	#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+	#placesList .item .info{padding:10px 0 10px 55px;}
+	#placesList .info .gray {color:#8a8a8a;}
+	#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+	#placesList .info .tel {color:#009900;}
+	#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+	#placesList .item .marker_1 {background-position: 0 -10px;}
+	#placesList .item .marker_2 {background-position: 0 -56px;}
+	#placesList .item .marker_3 {background-position: 0 -102px}
+	#placesList .item .marker_4 {background-position: 0 -148px;}
+	#placesList .item .marker_5 {background-position: 0 -194px;}
+	#placesList .item .marker_6 {background-position: 0 -240px;}
+	#placesList .item .marker_7 {background-position: 0 -286px;}
+	#placesList .item .marker_8 {background-position: 0 -332px;}
+	#placesList .item .marker_9 {background-position: 0 -378px;}
+	#placesList .item .marker_10 {background-position: 0 -423px;}
+	#placesList .item .marker_11 {background-position: 0 -470px;}
+	#placesList .item .marker_12 {background-position: 0 -516px;}
+	#placesList .item .marker_13 {background-position: 0 -562px;}
+	#placesList .item .marker_14 {background-position: 0 -608px;}
+	#placesList .item .marker_15 {background-position: 0 -654px;}
+	#pagination {margin:10px auto;text-align: center;}
+	#pagination a {display:inline-block;margin-right:10px;}
+	#pagination .on {font-weight: bold; cursor: default;color:#777;}
+</style>
+
+<!-- 클릭시 주소 확인 -->
+<style>
+    .map_wrap2 {position:relative;width:100%;height:350px;}
+    .title {font-weight:bold;display:block;}
+    .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
+    .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+</style>
 </head>
 
 <body>
@@ -67,14 +114,18 @@
 				</c:forEach>
 				</ul>
 				<!--  slide img -->
-
 				<div
 					style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
-					<i class="fas fa-at"></i> ${STORE.get(0).aloc}
+					<!-- <i class="fas fa-at"></i> --> <b>현재 위치</b> 
+					<div
+						id="text" style="font-size: 9pt; ">
+					</div>
 				</div>
-			
 				
-
+				<div
+					style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
+					<!-- <i class="fas fa-at"></i> --> <b>장소 위치</b><br /> ${STORE.get(0).aloc}
+				</div><br /> 
 				<div style="font-size: 9pt; padding-left: 15px;">
 					<i class="fas fa-phone-volume"></i> ${STORE.get(0).atel}
 				</div>
@@ -124,9 +175,9 @@
 					</center>
 				</div>
 				<div style="padding: 3px; margin-top: 5px;">${REVIEW.get(0).rbody}</div>
-				<div class="w3-right" style=" margin-bottom: 30px;  margin-top :15px">
+				<div class="w3-right">
 					<a href="javascript:void(0)" class="w3-bar-item"
-						style="font-size: 10pt;"
+						style="font-size: 10pt; margin-bottom: 30px;"
 						onclick="document.getElementById('id01').style.display='block'">
 						<Strong>> 후기 더보기.. </Strong>
 					</a>
@@ -173,7 +224,7 @@
 					</div>
 					<div style="margin-left: 80px;">
 						<div style="color: red; display: inline-block;">
-							<i class="fas fa-map-marker-alt"></i>
+							<i class="fas fa-map-marker-alt"></i> 
 						</div>
 						<div style="color: gray; display: inline-block;">${STORE.get(0).aloc}</div>
 						<div style="color: gray; font-size: 8pt; margin-left: 15px;">
@@ -231,7 +282,7 @@
 
 						<!-- 하단페이지 구현 -->
 						<section
-							style="display: flex; flex-direction: column; border-top: 1px solid #ECEAEB; margin-left: 60px; margin-right: 40px;" id="wReviewSuccess">
+							style="display: flex; flex-direction: column; border-top: 1px solid #ECEAEB; margin-left: 60px; margin-right: 40px;">
 							<!-- 1 -->
 						<c:forEach var="data" items="${REVIEW}">
 							<div
@@ -286,31 +337,24 @@
 
 						<footer
 							style="display: flex; flex-direction: column; margin-top: 50px; margin-left: 60px; margin-right: 40px;">
-							<form method="POST" encType="multipart/form-data" action="/Team03Proj/wReviewProc.cls"
+							<form method="POST" encType="multipart" action="#"
 								id="wReviewfrm" name="wReviewfrm">
 
 								<!-- 별 -->
 								<div class="starRev w3-right"
 									style="display: inline-block; margin-left: 15px;">
 									<p id="star_grade">
-										<a href="#" id="byul1">★</a> <a href="#" id="byul2">★</a> <a href="#" id="byul3">★</a> <a
-											href="#" id="byul4">★</a> <a href="#" id="byul5">★</a>
+										<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a
+											href="#">★</a> <a href="#">★</a>
 									</p>
 								</div>
-								<input type="hidden" id="reviewId" name="reviewId" value="${SID}">
-								<input type="hidden" id="reviewStar" name="reviewStar">
-								<input type="hidden" id="reviewRtno" name="reviewRtno" value="${STORE.get(0).atno}">
-								<input type="hidden" id="reviewX" name="reviewX" value="${REVIEW.get(0).rx}">
-								<input type="hidden" id="reviewY" name="reviewY" value="${REVIEW.get(0).ry}">
-								<input type="hidden" id="rpno" name="rpno" value="${REVIEW.get(0).rpno}">
 
 								<!-- review body추가 -->
 								<input type="text" placeholder="글 제목"
-									style="margin-top: 40px; border: none; padding: 5px; border-top: 1px solid gray;" name="reviewTitle" id="reviewTitle">
-								
+									style="margin-top: 40px; border: none; padding: 5px; border-top: 1px solid gray;">
 								<textarea
 									style="width: 100%; height: 200px; margin-bottom: 5px; padding: 20px;"
-									placeholder="이 곳에 리뷰를 작성하세요 :)" id="reviewBody" name="reviewBody"></textarea>
+									placeholder="이 곳에 리뷰를 작성하세요 :)"></textarea>
 
 								<div class="w3-button w3-amber w3-right" id="wsend"
 									style="margin-bottom: 30px; width: 150px;">리뷰 작성</div>
@@ -318,15 +362,11 @@
 								<!-- file추가 -->
 								<div>
 									<input type="file" style="display: inline-block; width: 500px;"
-										id="file1" name="file1">
-									<input type="file"
-										style="display: none; width: 500px;"
-										id="file2" name="file2">
-									<input
-										type="file" style="display: none; width: 500px;"
-										id="file3" name="file3">
+										id="file1"> <input type="file"
+										style="display: none; width: 500px;" id="file2"> <input
+										type="file" style="display: none; width: 500px;" id="file3">
 									<input type="file" style="display: none; width: 500px;"
-										id="file4" name="file4">
+										id="file4">
 								</div>
 							</form>
 						</footer>
@@ -366,28 +406,44 @@
 				</div>
 			</div>
 		</div>
+		
 
-		<div>
+	<div>
 			
 		
 			
-							<!-- 지도를 표시할 div 입니다 -->
+		<!-- 지도를 표시할 div 입니다 -->
 			<div style="margin-left:30px;">
-				<div id="map" style="width:97%; height:700px;"></div>
-			<form method="POST" action="/Team03Proj/main.cls" id="mfrm" name="mfrm">
-				<input type="hidden" name="ax" id="ax">
-				<input type="hidden" name="ay" id="ay">
-			</form>	
-				
-				
-			
+				<div class="map_wrap2">
+					<div id="map" style="width:97%; height:700px;"></div>
+					<div class="hAddr">
+			              <span class="title">주소정보</span>
+			              <span id="centerAddr"></span>
+			         </div>
+			         
+			         <!-- 검색창 -->
+			         <div class="map_wrap">
+				         <div id="menu_wrap" class="bg_white">
+						        <div class="option">
+						            <div>
+						                <form onsubmit="searchPlaces(); return false;">
+						                    키워드 : <input type="text" value="섭지코지" id="keyword" size="15"> 
+						                    <button type="submit">검색하기</button> 
+						                </form>
+						            </div>
+						        </div>
+						        <hr>
+						        <ul id="placesList"></ul>
+						        <div id="pagination"></div>
+						    </div>
+					 	</div>
+				 	</div>
+				 	
 			</div>	
 		</div>
 	</div>
 	<!-- 여기까지 페이지 컨텐트 -->
-	<script>
-	
-	</script>
+
 
 
 </body>
