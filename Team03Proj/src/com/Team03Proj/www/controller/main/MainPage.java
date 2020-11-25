@@ -1,6 +1,7 @@
 package com.Team03Proj.www.controller.main;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,12 +20,20 @@ public class MainPage implements ClsMain {
 		
 		String view = "/main/MainPage";
 		req.setAttribute("isRedirect", false);
-	
 		
-		Double x =33.23574587023389;;
-		Double y =126.36351258114277;
-//		x = req.getParameter("x");
-//		y = req.getParameter("y");
+		double x=0.;
+		double y=0.;
+	
+		String ax = req.getParameter("ax");
+		String ay = req.getParameter("ay");
+		
+		try {
+			x = Double.parseDouble(ax);
+			y = Double.parseDouble(ay);
+		}catch(Exception e) {
+			x =33.23574587023389;
+			y =126.36351258114277;
+		}
 		
 		
 		InfoDao iDao = new InfoDao();

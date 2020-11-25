@@ -318,15 +318,15 @@
 								<!-- file추가 -->
 								<div>
 									<input type="file" style="display: inline-block; width: 500px;"
-										id="file1" name="file">
+										id="file1" name="file1">
 									<input type="file"
 										style="display: none; width: 500px;"
-										id="file2" name="file">
+										id="file2" name="file2">
 									<input
 										type="file" style="display: none; width: 500px;"
-										id="file3" name="file">
+										id="file3" name="file3">
 									<input type="file" style="display: none; width: 500px;"
-										id="file4" name="file">
+										id="file4" name="file4">
 								</div>
 							</form>
 						</footer>
@@ -374,7 +374,7 @@
 							<!-- 지도를 표시할 div 입니다 -->
 			<div style="margin-left:30px;">
 				<div id="map" style="width:97%; height:700px;"></div>
-			<form method="POST" action="main.cls" id="mfrm" name="mfrm">
+			<form method="POST" action="/Team03Proj/main.cls" id="mfrm" name="mfrm">
 				<input type="hidden" name="ax" id="ax">
 				<input type="hidden" name="ay" id="ay">
 			</form>	

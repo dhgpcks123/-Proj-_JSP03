@@ -48,16 +48,16 @@ public class InfoDao {
 				rVO.setRy(rs.getDouble("ry"));
 				
 				Connection rcon = db.getCon();
-						
+				ResultSet rrs = null;
 			ArrayList<RphotoVO> rlist = new ArrayList<RphotoVO>();
 			String rsql = iSQL.getSQL(iSQL.SEL_REVIEW_PHOTO);
 			PreparedStatement rpstmt = db.getPSTMT(rcon, rsql);
 			rpstmt = db.getPSTMT(con, rsql);
-
+				try {
 				rpstmt.setDouble(1, rx);
 				rpstmt.setDouble(2, ry);
 				
-				ResultSet rrs = rpstmt.executeQuery();
+				rrs = rpstmt.executeQuery();
 				while(rrs.next()) {
 					RphotoVO pVO = new RphotoVO();
 					pVO.setRno(rrs.getInt("rno"));
@@ -66,6 +66,12 @@ public class InfoDao {
 					pVO.setRpsname(rrs.getString("rpsname"));
 					
 					rlist.add(pVO);
+				}
+				}catch(Exception e) {
+				}finally {
+					db.close(rrs);
+					db.close(rpstmt);
+					db.close(rcon);
 				}
 				rVO.setRphotovoList(rlist);
 				
@@ -149,29 +155,39 @@ public class InfoDao {
 	
 	public int addFile(ArrayList<FileVO> list) {
 		int cnt =0;
-		con = db.getCon();
-		String sql = iSQL.getSQL(iSQL.ADD_REVIEW_FILE);
-		pstmt = db.getPSTMT(con, sql);
-		try {
-			for(int i = 0 ; i<list.size(); i ++) {
-				pstmt.setInt(1, list.get(i).getRpno());
-				pstmt.setString(2, list.get(i).getRponame());
-				pstmt.setString(3, list.get(i).getRpsname());
-				pstmt.setInt(4, list.get(i).getRpsize());
-				pstmt.setString(5, list.get(i).getRpdir());
-				pstmt.setString(6, list.get(i).getRtno());
-			
-				cnt =+ pstmt.executeUpdate();
+			for(FileVO fVO : list) {
+				cnt =+ addFile(fVO);
 			}
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			db.close(pstmt);
-			db.close(con);
-		}
-		
 		
 		return cnt;
 	}
+
+	// 파일정보 입력 전담 처리함수
+		public int addFile(FileVO fVO) {
+			int cnt = 0;
+			con = db.getCon();
+			String sql = iSQL.getSQL(iSQL.ADD_REVIEW_FILE);
+			pstmt = db.getPSTMT(con, sql);
+			try {
+				// 질의명령 완성
+				pstmt.setInt(1, fVO.getRpno());
+				pstmt.setString(2, fVO.getRponame());
+				pstmt.setString(3, fVO.getRpsname());
+				pstmt.setInt(4, fVO.getRpsize());
+				pstmt.setString(5, fVO.getRpdir());
+				pstmt.setString(6, fVO.getRtno());
+				
+				// 질의보내고 결과받고
+				cnt = pstmt.executeUpdate();
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				db.close(pstmt);
+				db.close(con);
+			}
+			
+			return cnt;
+		}
+	
 	
 }

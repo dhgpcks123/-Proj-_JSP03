@@ -109,13 +109,14 @@ var positions = new Object();
 				kakao.maps.event.addListener(marker, 'click', function() {
 					let ax = JSON.stringify(positions[i].x);
 					let ay = JSON.stringify(positions[i].y);
-					var x = ax.substring(1, ax.length-1);
-					var y = ay.substring(1, ay.length-1);
+					var x = ax.substring(1, ax.length-1).trim();
+					var y = ay.substring(1, ay.length-1).trim();
 					
-					$('#ax').val = x;
-					$('#ay').val = y;
 					
-					$('mfrm').submit();
+					$('#ax').val(x);
+					$('#ay').val(y);
+					
+					$('#mfrm').submit();
 					
 //					alert(marker.ax);
 //					alert(positions.x);
