@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/Team03Proj/js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/Team03Proj/js/memberjoin.js"></script>
+<script type="text/javascript" src="/Team03Proj/js/memberjoin.js"></script>ㅁ
 <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-search-pseudo-elements></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
       <h1>회원가입 완료</h1>
       <p class="w3-opacity">CONGRATULATIONS!</p> 
 
-      <form class="w3-container w3-card w3-padding-32 w3-white w3-animate-left" action="" id="frm1">
+      <form class="w3-container w3-card w3-padding-32 w3-white w3-animate-left" action="/Team03Proj/main.cls" id="main">
 		<div class="w3-col mb10 pb20">
 			<h1 class="mtb50">환영합니다!</h1>
 			<i class="far fa-check-circle" style="width: 70px; height: 70px; "></i>
