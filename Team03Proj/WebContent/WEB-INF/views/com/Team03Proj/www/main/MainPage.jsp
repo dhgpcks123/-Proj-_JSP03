@@ -10,18 +10,19 @@
 <link rel="shortcut icon" href="#">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/cls.css">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/w3.css">
+<link rel="stylesheet" type="text/css" href="/Team03Proj/css/main/mapStyle.css">
 <link rel="stylesheet" type="text/css"
 	href="/Team03Proj/css/detailBoard/detailBoard.css">
 <link rel="stylesheet" type="text/css"
 	href="/Team03Proj/css/main/mainPage.css">
-<script src="https://kit.fontawesome.com/e6e9b86680.js"
-	crossorigin="anonymous"></script>
 <script type="text/javascript" src="/Team03Proj/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0997e0901ce72cd4e333dc4602ad8e94&libraries=services"></script>
 <script type="text/javascript" src="/Team03Proj/js/detailBoard.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/mainPage.js"></script>
-<script type="text/javascript" src="/Team03Proj/js/map.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/memberLogin.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0997e0901ce72cd4e333dc4602ad8e94"></script>
+<script type="text/javascript" src="/Team03Proj/js/map.js"></script>
+<script src="https://kit.fontawesome.com/e6e9b86680.js"
+	crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -391,21 +392,40 @@
 			
 							<!-- 지도를 표시할 div 입니다 -->
 			<div style="margin-left:30px;">
-				<div id="map" style="width:97%; height:700px;"></div>
+				
+<!-- map -->			
+<div class="map_wrap">
+ <div id="map" style="width:97%; height:700px;"></div>
+
+    <hr>
+    <ul id="placesList"></ul>
+    <div id="pagination"></div>
+</div>
+<!-- map -->			
+
+
 			<form method="POST" action="/Team03Proj/main.cls" id="mfrm" name="mfrm">
-				<input type="hidden" name="ax" id="ax">
-				<input type="hidden" name="ay" id="ay">
+				<input type="hidden" name="ax" id="ax" value="${MAPx}">
+				<input type="hidden" name="ay" id="ay" value="${MAPy}">
 			</form>	
 				
 				
 			
 			</div>	
 		</div>
+		
+    
 	</div>
 	<!-- 여기까지 페이지 컨텐트 -->
-	<script>
 	
-	</script>
+
+
+    
+    
+    
+    
+</div>
+
 
 
 </body>
