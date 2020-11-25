@@ -122,6 +122,11 @@ $(document).ready(function(){
 		$('#file3').change(function(){
 			$('#file4').css('display', 'inline-block');
 		});
+		
+		/* 회원가입 */		
+		$('#member').click(function(){
+			$(this).attr('href', '/Tean03Proj/memberJoin.cls');
+		});
 });
 
 
