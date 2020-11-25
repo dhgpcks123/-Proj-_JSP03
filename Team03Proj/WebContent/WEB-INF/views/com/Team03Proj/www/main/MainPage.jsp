@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>MainPage</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<link rel="shortcut icon" href="#">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/cls.css">
 <link rel="stylesheet" type="text/css" href="/Team03Proj/css/w3.css">
 <link rel="stylesheet" type="text/css"
@@ -18,6 +18,9 @@
 	crossorigin="anonymous"></script>
 <script type="text/javascript" src="/Team03Proj/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/Team03Proj/js/detailBoard.js"></script>
+<script type="text/javascript" src="/Team03Proj/js/mainPage.js"></script>
+<script type="text/javascript" src="/Team03Proj/js/map.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0997e0901ce72cd4e333dc4602ad8e94"></script>
 </head>
 
 <body>
@@ -43,140 +46,87 @@
 			<div>
 				<div style="background-color: #FFCD36">
 					<h2 class="w3-center" style="margin-top: 0px; margin-bottom: 30px;">
-						<i class="fas fa-store-alt"></i><strong> 원할머니 보쌈</strong>
+						<i class="fas fa-store-alt"></i><strong> ${STORE.get(0).aname}</strong>
 					</h2>
 				</div>
 
 				<!--  slide img -->
 				<ul class="slides">
-					<input type="radio" name="radio-btn" id="img-1" checked />
+				<c:forEach var="data" items="${STORE}" varStatus="status">
+					<input type="radio" name="radio-btn" id="img-${5-status.count}" checked />
 					<li class="slide-container">
 						<div class="slide">
-							<img
-								src="http://farm9.staticflickr.com/8072/8346734966_f9cd7d0941_z.jpg" />
+						
+							<img src="/Team03Proj${data.adir}/${data.aponame}" />
 						</div>
 						<div class="nav">
-							<label for="img-6" class="prev">&#x2039;</label> <label
-								for="img-2" class="next">&#x203a;</label>
+							<label for="img-${5-status.count-1}" class="prev">&#x2039;</label>
+							<label for="img-${5-status.count+1 }" class="next">&#x203a;</label>
 						</div>
 					</li>
-
-					<input type="radio" name="radio-btn" id="img-2" />
-					<li class="slide-container">
-						<div class="slide">
-							<img
-								src="http://farm9.staticflickr.com/8504/8365873811_d32571df3d_z.jpg" />
-						</div>
-						<div class="nav">
-							<label for="img-1" class="prev">&#x2039;</label> <label
-								for="img-3" class="next">&#x203a;</label>
-						</div>
-					</li>
-
-					<input type="radio" name="radio-btn" id="img-3" />
-					<li class="slide-container">
-						<div class="slide">
-							<img
-								src="http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg" />
-						</div>
-						<div class="nav">
-							<label for="img-2" class="prev">&#x2039;</label> <label
-								for="img-4" class="next">&#x203a;</label>
-						</div>
-					</li>
-
-					<input type="radio" name="radio-btn" id="img-4" />
-					<li class="slide-container">
-						<div class="slide">
-							<img
-								src="http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg" />
-						</div>
-						<div class="nav">
-							<label for="img-3" class="prev">&#x2039;</label> <label
-								for="img-5" class="next">&#x203a;</label>
-						</div>
-					</li>
-
-					<input type="radio" name="radio-btn" id="img-5" />
-					<li class="slide-container">
-						<div class="slide">
-							<img
-								src="http://farm9.staticflickr.com/8055/8098750623_66292a35c0_z.jpg" />
-						</div>
-						<div class="nav">
-							<label for="img-4" class="prev">&#x2039;</label> <label
-								for="img-6" class="next">&#x203a;</label>
-						</div>
-					</li>
-
-					<input type="radio" name="radio-btn" id="img-6" />
-					<li class="slide-container">
-						<div class="slide">
-							<img
-								src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
-						</div>
-						<div class="nav">
-							<label for="img-5" class="prev">&#x2039;</label> <label
-								for="img-1" class="next">&#x203a;</label>
-						</div>
-					</li>
-
-					<li class="nav-dots"><label for="img-1" class="nav-dot"
-						id="img-dot-1"></label> <label for="img-2" class="nav-dot"
-						id="img-dot-2"></label> <label for="img-3" class="nav-dot"
-						id="img-dot-3"></label> <label for="img-4" class="nav-dot"
-						id="img-dot-4"></label> <label for="img-5" class="nav-dot"
-						id="img-dot-5"></label> <label for="img-6" class="nav-dot"
-						id="img-dot-6"></label></li>
+				</c:forEach>
 				</ul>
 				<!--  slide img -->
 
 				<div
 					style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
-					<i class="fas fa-at"></i> 서울특별시 관악구청역 카카오 스페이스닷원 503호
+					<i class="fas fa-at"></i> ${STORE.get(0).aloc}
 				</div>
+			
+				
+
 				<div style="font-size: 9pt; padding-left: 15px;">
-					<i class="fas fa-phone-volume"></i> 054-748-4487
+					<i class="fas fa-phone-volume"></i> ${STORE.get(0).atel}
 				</div>
 				<div
 					style="border-top: 1px dashed gray; border-bottom: 1px dashed gray; padding: 15px 30px; margin: 30px 5px 15px 5px;">
 					<div>
-						<i class="fas fa-info-circle"></i> 메뉴정보
+						<i class="fas fa-info-circle"></i> ${STORE.get(0).abody}
 					</div>
-					<div>말제르브바게트</div>
-					<div>5,500원</div>
-					<div>몽쥐 바게트</div>
-					<div>4,500원</div>
-					<div>올리브치아바타</div>
-					<div>4,000원</div>
-					<div>바나나푸딩</div>
-					<div>4,000원</div>
+
 				</div>
 			</div>
 
-			<div style="padding: 15px;">
+			<div style="padding: 15px; margin-top: 20px;">
 
-				<div style="text-align: center; margin-bottom: 9px;">이 가게의 가장
+				<div style="text-align: center; margin-bottom: 9px; background-color: #DEDEDE;">이 가게의 가장
 					최근리뷰</div>
 				<div style="margin-bottom: 10px;">
-					<div class="w3-right">2020-11-20</div>
-					<div style="display: inline-block;">여기 졸맛탱</div>
-					<div style="margin-bottom: 5px; display: inline-block;">★★★★☆</div>
+					<div style="display: block; font-size:14pt">${REVIEW.get(0).rtitle}</div>
+					<div style="display: block; font-size: 7pt;">${REVIEW.get(0).rdate}</div>
+					<div style="margin-bottom: 5px; display:block; text-align:right; font-size:16pt;">
+							<c:if test="${REVIEW.get(0).rgrade==5}">
+								★★★★★
+							</c:if>
+							<c:if test="${REVIEW.get(0).rgrade==4}">
+								★★★★☆
+							</c:if>
+							<c:if test="${REVIEW.get(0).rgrade==3}">
+								★★★☆☆
+							</c:if>
+							<c:if test="${REVIEW.get(0).rgrade==2}">
+								★★☆☆☆
+							</c:if>
+							<c:if test="${REVIEW.get(0).rgrade==1}">
+								★☆☆☆☆
+							</c:if>
+							 [${REVIEW.get(0).rgrade}/5]
+					</div>
 				</div>
+				
 				<div style="margin-bottom: 30px;">
 					<center>
-						<img class="reviewIMG"
-							src="/Team03Proj/img/detailBoard/store01.jpg"></img> <img
-							class="reviewIMG" src="/Team03Proj/img/detailBoard/store02.jpg"></img>
+					<c:forEach var="data" items="${REVIEW.get(0).rphotovoList}">
+						<c:if test="${REVIEW.get(0).rno == data.rno}">
+							<img class="reviewIMG" src="/Team03Proj/${data.rdir}${data.rponame}"></img>
+						</c:if>
+					</c:forEach>
 					</center>
 				</div>
-				<div style="padding: 3px; margin-top: 5px;">가보고 괜찮아서 주변에
-					추천했더니, 일식 좋아하시는 분들이 현지 맛을 너무나 잘 살린 마제소바라며 극찬함. 사실 나는 마제소바 자체가 여기가
-					처음인지라 그정도인줄은 잘 모르겠으나, 아무튼 소바 좀 먹는 사람들이 환장하는 곳인듯소바 좀 먹는 사람들이 환장하는
-					곳인듯..</div>
-				<div class="w3-right">
+				<div style="padding: 3px; margin-top: 5px;">${REVIEW.get(0).rbody}</div>
+				<div class="w3-right" style=" margin-bottom: 30px;  margin-top :15px">
 					<a href="javascript:void(0)" class="w3-bar-item"
-						style="font-size: 10pt; margin-bottom: 30px;"
+						style="font-size: 10pt;"
 						onclick="document.getElementById('id01').style.display='block'">
 						<Strong>> 후기 더보기.. </Strong>
 					</a>
@@ -218,17 +168,16 @@
 							<i class="fas fa-store-alt"></i>
 						</div>
 						<div style="font-size: 35pt; display: inline-block;">
-							<Strong> 원조할배국밥 수원장안구청점 </Strong>
+							<Strong> ${STORE.get(0).aname} </Strong>
 						</div>
 					</div>
 					<div style="margin-left: 80px;">
 						<div style="color: red; display: inline-block;">
 							<i class="fas fa-map-marker-alt"></i>
 						</div>
-						<div style="color: gray; display: inline-block;">제주특별자치도
-							서귀포시 색달동 일주서로 968-10</div>
+						<div style="color: gray; display: inline-block;">${STORE.get(0).aloc}</div>
 						<div style="color: gray; font-size: 8pt; margin-left: 15px;">
-							전화번호 : <span>010-7648-5555</span>
+							전화번호 : <span>${STORE.get(0).atel}</span>
 						</div>
 					</div>
 					<div>
@@ -251,33 +200,14 @@
 						<div id="wrapper">
 							<div class="w3-round-xxlarge" id="slider-wrap">
 								<ul id="slider">
+								<c:forEach var="data" items="${STORE}">
 									<li>
-										<div></div> <a href="/Team03Proj/img/detailBoard/store01.jpg">
-											<img class="StoreIMG w3-padding-right"
-											src="/Team03Proj/img/detailBoard/store01.jpg">
+										<a href="/Team03Proj${data.adir}/${data.aponame}">
+										<img class="StoreIMG w3-padding-right"
+										src="/Team03Proj${data.adir}/${data.aponame}" >
 									</a>
 									</li>
-									<li>
-										<div></div> <img class="StoreIMG w3-padding-right"
-										src="/Team03Proj/img/detailBoard/store02.jpg">
-									</li>
-
-									<li>
-										<div></div> <img class="StoreIMG"
-										src="/Team03Proj/img/detailBoard/store03.jpg">
-									</li>
-									<li>
-										<div></div> <img class="StoreIMG"
-										src="/Team03Proj/img/detailBoard/store01.jpg">
-									</li>
-									<li>
-										<div></div> <img class="StoreIMG"
-										src="/Team03Proj/img/detailBoard/store04.jpg">
-									</li>
-									<li>
-										<div></div> <img class="StoreIMG"
-										src="/Team03Proj/img/detailBoard/store01.jpg">
-									</li>
+								</c:forEach>	
 								</ul>
 
 								<!--controls-->
@@ -301,102 +231,86 @@
 
 						<!-- 하단페이지 구현 -->
 						<section
-							style="display: flex; flex-direction: column; border-top: 1px solid #ECEAEB; margin-left: 60px; margin-right: 40px;">
+							style="display: flex; flex-direction: column; border-top: 1px solid #ECEAEB; margin-left: 60px; margin-right: 40px;" id="wReviewSuccess">
 							<!-- 1 -->
+						<c:forEach var="data" items="${REVIEW}">
 							<div
 								style="background-color: #F6F6F6; margin-top: 10px; display: flex; justify-content: space-between; border-bottom: 1px solid #ECEAEB; padding: 0px 20px;">
-								<h3 style="cursor: pointer; margin-top: 15px;">원조할배국밥 안양역점
-									&gt;</h3>
+								<h3 style="cursor: pointer; margin-top: 15px;">${data.rtitle}</h3>
 								<h3
-									style="color: yellow; margin-left: 3%; text-shadow: 2px 2px 2px gray;">★★★☆☆</h3>
-
+									style="color: yellow; margin-left: 3%; text-shadow: 2px 2px 2px gray;">
+								<c:if test="${data.rgrade==5}">
+									★★★★★
+								</c:if>
+								<c:if test="${data.rgrade==4}">
+									★★★★☆
+								</c:if>
+								<c:if test="${data.rgrade==3}">
+									★★★☆☆
+								</c:if>
+								<c:if test="${data.rgrade==2}">
+									★★☆☆☆
+								</c:if>
+								<c:if test="${data.rgrade==1}">
+									★☆☆☆☆
+								</c:if>
+								</h3>
+		
 							</div>
 							<div
 								style="display: flex; border-bottom: 1px solid #ECEAEB; padding-right: 20px;">
-								<div style="padding-left: 5px; width: 70%;">> 자려고 누웠는데
-									생각나는 맛입니다..</div>
-								<div>
-									<strong>dhgpcks123</strong>
-								</div>
+								<div style="margin-left: 45px;">작성자 :</div>
+								<div>${data.id}</div>
 								<div style="margin-left: 45px;">작성일 :</div>
-								<div>2020. 12. 13</div>
+								<div>${data.rdate }</div>
 							</div>
-
+		
 							<div style="border-bottom: 1px solid #ECEAEB;">
 								<div
-									style="margin-top: 20px; padding-right: 33px; display: inline-block;">화덕피자로
-									유명한 곳인지도 모르고 갔는데 먹으면서 피자가 너무 맛있어서 검색을 해봤더니 화덕피자로 유명하다 해서 역시 유명한
-									데에는 이유가 있구나라는 생각을 했어요. 쫀득하고 간간한 도우위에 작지만 충분한 마르게리따 피자와 봉골레 파스타,
-									단호박 수프 모두 입맛에 잘 맞아서 맛있게 먹고 왔어요. 참고로 분위기도 좋았지만 접시가 너무 예뻐서 다음 요리는
-									어떤 접시에 나올까 생각해보면서 기다렸어요.</div>
-								<div
-									style="display: flex; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 20px;">
-									<img class="reviewIMG"
-										src="/Team03Proj/img/detailBoard/리뷰사진1.jpg"></img> <img
-										class="reviewIMG" src="/Team03Proj/img/detailBoard/리뷰사진2.jpg"></img>
-								</div>
+									style="margin-top: 20px; padding-right: 33px; display: inline-block;">
+									${data.rbody}
+									</div>
+									
+									<div style="display: flex; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 20px;">
+								<c:forEach var="data1" items="${REVIEW.get(0).rphotovoList}">
+									<c:if test="${data.rno == data1.rno}">
+										<img class="reviewIMG" src="/Team03Proj/${data1.rdir}${data1.rponame}"></img>
+									</c:if>
+								</c:forEach>
+									</div>
 							</div>
-							<!-- 2 -->
-							<div
-								style="background-color: #F6F6F6; margin-top: 30px; display: flex; justify-content: space-between; border-bottom: 1px solid #ECEAEB; padding: 0px 20px;">
-								<h3 style="cursor: pointer; margin-top: 15px;">원조할배국밥
-									구로디지털단지역 &gt;</h3>
-								<h3
-									style="color: yellow; margin-left: 3%; text-shadow: 2px 2px 2px gray;">★★★☆☆</h3>
-
-							</div>
-							<div
-								style="display: flex; border-bottom: 1px solid #ECEAEB; padding-right: 20px;">
-								<div style="padding-left: 5px; width: 70%;">> 여기 졸맛탱</div>
-								<div>
-									<strong>woooooooow</strong>
-								</div>
-								<div style="margin-left: 45px;">작성일 :</div>
-								<div>2020. 12. 10</div>
-							</div>
-
-							<div style="border-bottom: 1px solid #ECEAEB;">
-								<div
-									style="margin-top: 20px; padding-right: 33px; display: inline-block;">화덕피자로
-									유명한 곳인지도 모르고 갔는데 먹으면서 피자가 너무 맛있어서 검색을 해봤더니 가보고 괜찮아서 주변에 추천했더니,
-									일식 좋아하시는 분들이 현지 맛을 너무나 잘 살린 마제소바라며 극찬함. 사실 나는 마제소바 자체가 여기가
-									처음인지라 그정도인줄은 잘 모르겠으나, 아무튼 소바 좀 먹는 사람들이 환장하는 곳인듯..</div>
-								<div
-									style="display: flex; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 20px;">
-									<img class="reviewIMG"
-										src="/Team03Proj/img/detailBoard/store01.jpg"></img> <img
-										class="reviewIMG"
-										src="/Team03Proj/img/detailBoard/store02.jpg"></img> <img
-										class="reviewIMG"
-										src="/Team03Proj/img/detailBoard/store03.jpg"></img> <img
-										class="reviewIMG"
-										src="/Team03Proj/img/detailBoard/store04.jpg"></img>
-								</div>
-							</div>
-
+						</c:forEach>
+						
 						</section>
 
 
 						<footer
 							style="display: flex; flex-direction: column; margin-top: 50px; margin-left: 60px; margin-right: 40px;">
-							<form method="POST" encType="multipart" action="#"
+							<form method="POST" encType="multipart/form-data" action="/Team03Proj/wReviewProc.cls"
 								id="wReviewfrm" name="wReviewfrm">
 
 								<!-- 별 -->
 								<div class="starRev w3-right"
 									style="display: inline-block; margin-left: 15px;">
 									<p id="star_grade">
-										<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a
-											href="#">★</a> <a href="#">★</a>
+										<a href="#" id="byul1">★</a> <a href="#" id="byul2">★</a> <a href="#" id="byul3">★</a> <a
+											href="#" id="byul4">★</a> <a href="#" id="byul5">★</a>
 									</p>
 								</div>
+								<input type="hidden" id="reviewId" name="reviewId" value="${SID}">
+								<input type="hidden" id="reviewStar" name="reviewStar">
+								<input type="hidden" id="reviewRtno" name="reviewRtno" value="${STORE.get(0).atno}">
+								<input type="hidden" id="reviewX" name="reviewX" value="${REVIEW.get(0).rx}">
+								<input type="hidden" id="reviewY" name="reviewY" value="${REVIEW.get(0).ry}">
+								<input type="hidden" id="rpno" name="rpno" value="${REVIEW.get(0).rpno}">
 
 								<!-- review body추가 -->
 								<input type="text" placeholder="글 제목"
-									style="margin-top: 40px; border: none; padding: 5px; border-top: 1px solid gray;">
+									style="margin-top: 40px; border: none; padding: 5px; border-top: 1px solid gray;" name="reviewTitle" id="reviewTitle">
+								
 								<textarea
 									style="width: 100%; height: 200px; margin-bottom: 5px; padding: 20px;"
-									placeholder="이 곳에 리뷰를 작성하세요 :)"></textarea>
+									placeholder="이 곳에 리뷰를 작성하세요 :)" id="reviewBody" name="reviewBody"></textarea>
 
 								<div class="w3-button w3-amber w3-right" id="wsend"
 									style="margin-bottom: 30px; width: 150px;">리뷰 작성</div>
@@ -404,11 +318,15 @@
 								<!-- file추가 -->
 								<div>
 									<input type="file" style="display: inline-block; width: 500px;"
-										id="file1"> <input type="file"
-										style="display: none; width: 500px;" id="file2"> <input
-										type="file" style="display: none; width: 500px;" id="file3">
+										id="file1" name="file1">
+									<input type="file"
+										style="display: none; width: 500px;"
+										id="file2" name="file2">
+									<input
+										type="file" style="display: none; width: 500px;"
+										id="file3" name="file3">
 									<input type="file" style="display: none; width: 500px;"
-										id="file4">
+										id="file4" name="file4">
 								</div>
 							</form>
 						</footer>
@@ -450,12 +368,26 @@
 		</div>
 
 		<div>
-			<img src="/Team03Proj/img/main/imageservice.png"
-				class="w3-col" style="width: 100%; height: 85vh; padding: 7px;">
+			
+		
+			
+							<!-- 지도를 표시할 div 입니다 -->
+			<div style="margin-left:30px;">
+				<div id="map" style="width:97%; height:700px;"></div>
+			<form method="POST" action="/Team03Proj/main.cls" id="mfrm" name="mfrm">
+				<input type="hidden" name="ax" id="ax">
+				<input type="hidden" name="ay" id="ay">
+			</form>	
+				
+				
+			
+			</div>	
 		</div>
 	</div>
 	<!-- 여기까지 페이지 컨텐트 -->
-
+	<script>
+	
+	</script>
 
 
 </body>
