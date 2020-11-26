@@ -10,7 +10,7 @@ import com.Team03Proj.www.controller.*;
 public class MemerJoinProc implements ClsMain {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/Team03Proj/main.cls";
+		String view = "/Team03Proj/memberJoinEnd.cls";
 		// 페이지 요청방식  설정
 		req.setAttribute("isRedirect", true);
 		

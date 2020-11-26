@@ -14,7 +14,7 @@
 
 </head>
 <body>
- 	<form method="" action="/Team03Proj/memberJoinEnd.cls" id="memberJoinEnd">
+ 	<form id="memberJoinEnd" name="memberJoinEnd">
  	
 		<div class="w3-content w3-center w3-teal w3-container mw400700 radius1">
 			<!-- STEP 1  -->
@@ -73,7 +73,7 @@
 					   
 					<!-- 이름  -->
 					<div class="w3-col  pb20">
-						<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="이름" required name="name" id="name">
+						<input class="w3-input w3-padding-16 w3-border" type="text" placeholder="이름" required name="mname" id="mname">
 						<span class="w3-col w3-center" id="namemsg" style="display: none;"></span>
 					</div>
 					<!-- 생년월일  -->
@@ -151,8 +151,8 @@
 	 -->
 						</div>
 						<div class="w3-col m5 mt5  w3-border w3-left" name="blood2" id="blood2">
-							<input type="radio" class="w3-radio-medium ph" id="phP" name="ph" value="plus"><span>&nbsp;PH+</span><br>
-							<input type="radio" class="w3-radio-medium ph" id="phM" name="ph" value="minus"><span>&nbsp;PH-</span>
+							<input type="radio" class="w3-radio-medium ph" id="phP" name="ph" value="RH+"><span>&nbsp;PH+</span><br>
+							<input type="radio" class="w3-radio-medium ph" id="phM" name="ph" value="PH-"><span>&nbsp;PH-</span>
 							<!-- 
 							<select class="ph" id="ph">
 								<option selected>모름</option>

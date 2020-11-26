@@ -295,9 +295,9 @@ $(document).ready(function(){
 		$('#step2').addClass('w3-hide');
 	});
 	$('#reset2').click(function(){
-		$('#name').val('');
-		$('#name').removeClass('w3-teal');
-		$('#name').removeClass('w3-pale-red');
+		$('#mname').val('');
+		$('#mname').removeClass('w3-teal');
+		$('#mname').removeClass('w3-pale-red');
 		$('#birth').val('');
 //		$('#year').val('1988');
 //		$('#mouth').val('6');
@@ -308,7 +308,7 @@ $(document).ready(function(){
 		$('#gen').val("성별");
 	});
 	$('#next2').click(function(){
-		var sname = $('#name').val();
+		var sname = $('#mname').val();
 		var stel = $('#tel').val();
 		var sgen = $('.gen:checked').val();
 		
@@ -344,7 +344,6 @@ $(document).ready(function(){
 		joinAgree();
 	});
 
-
 	 // 개인정보 확인 후 가입내용 전송 
     function joinCheck() {
 		var res = true;
@@ -353,13 +352,13 @@ $(document).ready(function(){
 		var spw = $('#pw').val();
 		var smail = $('#mail').val();
 		var sname = $('#name').val();
-		var syear = $('#year').val();
-		var smouth = $('#mouth').val();
-		var sday = $('#day').val();
+//		var syear = $('#year').val();
+//		var smouth = $('#mouth').val();
+//		var sday = $('#day').val();
 		var stel = $('#tel').val();
 		var sgen = $('.gen:checked').val();
-		var sph = $('.ph:checked').val();
-		var sabo = $('.abo:checked').val();
+//		var sph = $('.ph:checked').val();
+//		var sabo = $('.abo:checked').val();
 //		var sstel = $('#stel').val();
 //		var sstel_name = $('#stel_name').val();
 //		var stext = $('#text').val();
@@ -367,16 +366,14 @@ $(document).ready(function(){
 	//	alert(sid + '|' + spw + '|' + smail + '|' + 
 	//		sname + '|' + syear + '|' + smouth + '|' + sday + '|' + stel + '|' + sgen + '|' + 
 	//		sph + '|' + sabo + '|' + sstel + '|' + sstel_name + '|' + stext);
-		if(!(sid && spw && smail && 
-			sname && syear && smouth && sday && stel && sgen && 
-			sph && sabo)){
+		if(!(sid && spw && smail && sname && stel && sgen)){
 			res = false;
 		} else {
 			alert('입력에 이상이 없는지 확인해주세요.');
 		}
 			
 		$('#memberJoinEnd').attr('method', 'POST'); 
-		$('#memberJoinEnd').attr('action', '/Team03Proj/memberJoinEnd.cls'); 
+		$('#memberJoinEnd').attr('action', '/Team03Proj/memberJoinProc.cls'); 
 		
 		return res;
     }
