@@ -284,8 +284,7 @@ $(document).ready(function(){
 			$('#next1').stop();
 		} else if (sid.length == 8 || sid.length == 12){
 			$('#step1').addClass('w3-hide');
-			$('#step1').attr('disabled', 'false');
-			$('#step3').removeClass('w3-hide');
+			$('#step2').removeClass('w3-hide');
 		}
 	});
 	// 회원가입 step2버튼 
@@ -320,7 +319,6 @@ $(document).ready(function(){
 			$('#next2').stop();
 		} else if (sgen){
 			$('#step2').addClass('w3-hide');
-			$('#step2').attr('disabled', 'false');
 			//alert('????');
 			$('#step3').removeClass('w3-hide');
 		}
@@ -339,7 +337,6 @@ $(document).ready(function(){
 		$('#text').val('');
 	});
 	$('#next3').click(function(){
-		alert('check');
 		joinCheck();
 		joinAgree();
 	});
