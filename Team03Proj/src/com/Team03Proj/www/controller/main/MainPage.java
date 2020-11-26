@@ -8,10 +8,10 @@ public class MainPage implements ClsMain {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-	
-	String view = "/main/MainPage";
-	req.setAttribute("isRedirect", false);
-
-	return view;
+		
+		String view = "main/MainPage";
+		req.setAttribute("isRedirect", false);
+		
+		return view;
 	}
 }

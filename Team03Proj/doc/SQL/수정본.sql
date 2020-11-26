@@ -1,4 +1,4 @@
---¼Ò¼öÁ¡ ÀÔ·ÂÀ» À§ÇØ NUMBER(10) -> NUMBER·Î ¼öÁ¤ÇÑ´Ù
+--ì†Œìˆ˜ì  ìž…ë ¥ì„ ìœ„í•´ NUMBER(10) -> NUMBERë¡œ ìˆ˜ì •í•œë‹¤
 ALTER TABLE userlocation
 MODIFY uy NUMBER;
 
@@ -13,7 +13,7 @@ ALTER TABLE areainfo
 MODIFY ax NUMBER;
 
 
--- Áöµµ¿¡ Ç¥½ÃÇÏ±â À§ÇØ ÁÂÇ¥°ª x, y¸¦ ¼öÁ¤ÇÑ´Ù
+-- ì§€ë„ì— í‘œì‹œí•˜ê¸° ìœ„í•´ ì¢Œí‘œê°’ x, yë¥¼ ìˆ˜ì •í•œë‹¤
 UPDATE AREAINFO
 SET ax= 33.42437961506556, ay=126.93110026765497
 WHERE ano=1;
@@ -79,30 +79,30 @@ SET ax=33.46714133094259, ay=126.5457129811507
 WHERE ano=16;
 
 
--- review Å×ÀÌºí ano ¸¦ ¾ø¾Ú (Àå¼ÒÅ×ÀÌºí¿¡ ÀÖ´Â ¿©ÇàÁö¸¸ ¸®ºä ÀÛ¼º °¡´ÉÇÏ¿© Àå¼Ò¹øÈ£¸¦ ¾ø¾Ö°í, rx ,ry Ãß°¡ÇØ¾ß ÇÔ)
--- ´©°¡ review¸¦ ½è´ÂÁö ¾Ë ¼ö ¾ø¾î¼­ mno Ãß°¡
+-- review í…Œì´ë¸” ano ë¥¼ ì—†ì•° (ìž¥ì†Œí…Œì´ë¸”ì— ìžˆëŠ” ì—¬í–‰ì§€ë§Œ ë¦¬ë·° ìž‘ì„± ê°€ëŠ¥í•˜ì—¬ ìž¥ì†Œë²ˆí˜¸ë¥¼ ì—†ì• ê³ , rx ,ry ì¶”ê°€í•´ì•¼ í•¨)
+-- ëˆ„ê°€ reviewë¥¼ ì¼ëŠ”ì§€ ì•Œ ìˆ˜ ì—†ì–´ì„œ mno ì¶”ê°€
 DROP TABLE rphoto;
 DROP TABLE review;
--- ¸®ºäÁ¤º¸Å×ÀÌºí
+-- ë¦¬ë·°ì •ë³´í…Œì´ë¸”
 
 create table review (
-    rno NUMBER(10) -- ±Û¹øÈ£
+    rno NUMBER(10) -- ê¸€ë²ˆí˜¸
         CONSTRAINT REVIEW_RNO_PK PRIMARY KEY,
-    mno NUMBER(10) -- È¸¿ø¹øÈ£
+    mno NUMBER(10) -- íšŒì›ë²ˆí˜¸
         CONSTRAINT REVIEW_MNO_FK REFERENCES member(mno)
         CONSTRAINT REVIEW_MNO_NN NOT NULL,
     rtitle VARCHAR2(50 CHAR)
-        CONSTRAINT REVIEW_TITLE_NN NOT NULL,   -- ±Û Á¦¸ñ
+        CONSTRAINT REVIEW_TITLE_NN NOT NULL,   -- ê¸€ ì œëª©
     rbody VARCHAR2(500 CHAR)
-        CONSTRAINT REVIEW_BODY_NN NOT NULL, -- ±Û ³»¿ë
+        CONSTRAINT REVIEW_BODY_NN NOT NULL, -- ê¸€ ë‚´ìš©
     rpno NUMBER(10)
         CONSTRAINT REVIEW_RPNO_UK UNIQUE
-        CONSTRAINT REVIEW_RPNO_NN NOT NULL, -- ¾÷·Îµå »çÁø
+        CONSTRAINT REVIEW_RPNO_NN NOT NULL, -- ì—…ë¡œë“œ ì‚¬ì§„
     rdate DATE  DEFAULT sysdate
         CONSTRAINT REVIEW_RDATE_NN NOT NULL,
     rgrade NUMBER
         CONSTRAINT REVIEW_GRADE_NN NOT NULL
-        CONSTRAINT REVIEW_GRADE_CK CHECK ( rgrade IN (0, 0.5 , 1 , 1.5 , 2 , 2.5 , 3 , 3.5 , 4 , 4.5 , 5)), -- Àå¼Ò ÆòÁ¡
+        CONSTRAINT REVIEW_GRADE_CK CHECK ( rgrade IN (0, 0.5 , 1 , 1.5 , 2 , 2.5 , 3 , 3.5 , 4 , 4.5 , 5)), -- ìž¥ì†Œ í‰ì 
     rhit NUMBER(10) DEFAULT 0
         CONSTRAINT REVIEW_HIT_NN NOT NULL,
     isshow CHAR(1) DEFAULT 'Y'
@@ -117,64 +117,64 @@ create table review (
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),1002,'»ç¶ó ¿À¸§ ´Ù³à¿Ô¾î¿ä~','¿À¸§ÀÌ ¾Æ´Ï¶ó »ç¶ó»ê °°¾Æ¿ä. ±×·¯³ª ³Ê¹« ¾Æ¸§´Ù¿ö¼­ Èûµç °Íµµ ÀØ¾ú´ä´Ï´Ù.',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),1002,'ì‚¬ë¼ ì˜¤ë¦„ ë‹¤ë…€ì™”ì–´ìš”~','ì˜¤ë¦„ì´ ì•„ë‹ˆë¼ ì‚¬ë¼ì‚° ê°™ì•„ìš”. ê·¸ëŸ¬ë‚˜ ë„ˆë¬´ ì•„ë¦„ë‹¤ì›Œì„œ íž˜ë“  ê²ƒë„ ìžŠì—ˆë‹µë‹ˆë‹¤.',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2020/10/31',5,50,'Y',33.375636521547264,126.5685862198309
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),1003,'Ã»º¸¸®°¡ ÃãÀ» ÁÖ³×¿ä','Ã»º¸¸®, À¯Ã¤²É, ÆÄµµÀÇ Á¶È­ ÃÖ°í!!',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),1003,'ì²­ë³´ë¦¬ê°€ ì¶¤ì„ ì£¼ë„¤ìš”','ì²­ë³´ë¦¬, ìœ ì±„ê½ƒ, íŒŒë„ì˜ ì¡°í™” ìµœê³ !!',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2020/10/31',5,30,'Y' , 33.1727671789905 ,  126.27293207589577
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),1007,'´õ¼î¾îÈ£ÅÚ ´Ù³à¿Ô¾î¿ä~','ºä´Â Á¤¸» ÁÁÀºµ¥ Á» ºñ½Î³×¿ä.. ±×·¡µµ ÁÁÀº Ãß¾ïÀÌ µÇ¾î Çàº¹ÇÕ´Ï´Ù. ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),1007,'ë”ì‡¼ì–´í˜¸í…” ë‹¤ë…€ì™”ì–´ìš”~','ë·°ëŠ” ì •ë§ ì¢‹ì€ë° ì¢€ ë¹„ì‹¸ë„¤ìš”.. ê·¸ëž˜ë„ ì¢‹ì€ ì¶”ì–µì´ ë˜ì–´ í–‰ë³µí•©ë‹ˆë‹¤. ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2020/08/01',4,20,'Y', 33.24462498540053, 126.40604683881358
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),1009,'ÀÎ»ý¸ÀÁý ´ã¾Æ·¡ ¼­±ÍÆ÷Á¡','ºñ¸°°ÍÀ» ½È¾îÇÏ´Âµ¥ °£Àåµü»õ¿ì¹ä ÈíÀÔÇß³×¿ä. ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),1009,'ì¸ìƒë§›ì§‘ ë‹´ì•„ëž˜ ì„œê·€í¬ì ','ë¹„ë¦°ê²ƒì„ ì‹«ì–´í•˜ëŠ”ë° ê°„ìž¥ë”±ìƒˆìš°ë°¥ í¡ìž…í–ˆë„¤ìš”. ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2019/05/01',5,65,'Y', 33.23574587023389, 126.36351258114277
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),1010,'TV¿¡ ³ª¿Â ¸ÀÁýÀ» °¡´Ù´Ï','Áý¿¡ µ¹¾Æ¿À´Â ±æ¿¡ »ý°¢³ª´Â ¿­¹ä, ¶Ç¸Ô°í ½Í³×¿ä ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),1010,'TVì— ë‚˜ì˜¨ ë§›ì§‘ì„ ê°€ë‹¤ë‹ˆ','ì§‘ì— ëŒì•„ì˜¤ëŠ” ê¸¸ì— ìƒê°ë‚˜ëŠ” ì—´ë°¥, ë˜ë¨¹ê³  ì‹¶ë„¤ìš” ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2018/07/01',4.5,34,'Y' , 33.250525250847936, 126.42445768114317
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),1001,'¿©Çà Áß Ä¡°ú ÈÄ±â','¿©ÇàÀ» °¬´Âµ¥ Ä¡¾Æ°¡ ³Ê¹« ¾ÆÆÄ¼­ Ä¡°ú ´Ù³à¿Ô¾î¿ä. 
-    ´öºÐ¿¡ ÀÌÁ¨ ³ª¾ÆÁ³¾î¿ä ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),1001,'ì—¬í–‰ ì¤‘ ì¹˜ê³¼ í›„ê¸°','ì—¬í–‰ì„ ê°”ëŠ”ë° ì¹˜ì•„ê°€ ë„ˆë¬´ ì•„íŒŒì„œ ì¹˜ê³¼ ë‹¤ë…€ì™”ì–´ìš”. 
+    ë•ë¶„ì— ì´ì   ë‚˜ì•„ì¡Œì–´ìš” ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2017/07/01',3.5,25,'Y', 33.251745497098426, 126.42565332716656
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),1002,'ÇÑÀÇ¿øÀ» ´Ù³à¿Ô½À´Ï´Ù. ','Á÷¿øÀÌ ºÒÄ£ÀýÇØ¼­ ´ÙÀ½¿¡´Â °¡°í ½ÍÁö ¾Ê½À´Ï´Ù. ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),1002,'í•œì˜ì›ì„ ë‹¤ë…€ì™”ìŠµë‹ˆë‹¤. ','ì§ì›ì´ ë¶ˆì¹œì ˆí•´ì„œ ë‹¤ìŒì—ëŠ” ê°€ê³  ì‹¶ì§€ ì•ŠìŠµë‹ˆë‹¤. ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2018/06/11',3,15,'Y' , 33.518037668945176, 126.52284210749815
 );
 
 INSERT INTO
     review
 VALUES(
-    (SELECT NVL(MAX(rno)+1,1) FROM review),1004,'Á×´Ù »ì¾Æ³µ¾î¿ä ','¹ã¿¡ ±ÞÇÏ°Ô Ã¼ÇÏ´Â ¹Ù¶÷¿¡ 
-    ÀáÀ» ÀÚÁö ¸øÇÏ´Ù°¡ ÀÀ±Þ½ÇÀ» ´Ù³à¿Ô½À´Ï´Ù. ',
+    (SELECT NVL(MAX(rno)+1,1) FROM review),1004,'ì£½ë‹¤ ì‚´ì•„ë‚¬ì–´ìš” ','ë°¤ì— ê¸‰í•˜ê²Œ ì²´í•˜ëŠ” ë°”ëžŒì— 
+    ìž ì„ ìžì§€ ëª»í•˜ë‹¤ê°€ ì‘ê¸‰ì‹¤ì„ ë‹¤ë…€ì™”ìŠµë‹ˆë‹¤. ',
     (SELECT NVL(MAX(rpno)+1,1) FROM review),'2019/11/11',4,53,'Y', 33.255174417839335, 126.56479441182559
 );
 
 
 
--- ¸®ºä»çÁøÅ×ÀÌºí
+-- ë¦¬ë·°ì‚¬ì§„í…Œì´ë¸”
 CREATE TABLE rphoto(
     rpno NUMBER(10)
         CONSTRAINT RPHOTO_RPNO_FK REFERENCES review(rpno)
@@ -196,55 +196,55 @@ CREATE TABLE rphoto(
 INSERT INTO
     rphoto
 VALUES(
-    1,'noimage.jpg','»ç¶ó¿À¸§1.jpg',200*100,'img/review/',10
+    1,'noimage.jpg','ì‚¬ë¼ì˜¤ë¦„1.jpg',200*100,'img/review/',10
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    1,'noimage.jpg','»ç¶ó¿À¸§3.jpg',200*100,'img/review/',10
+    1,'noimage.jpg','ì‚¬ë¼ì˜¤ë¦„3.jpg',200*100,'img/review/',10
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    2,'noimage.jpg','°¡ÆÄµµ3.jpg',200*100,'img/review/',10
+    2,'noimage.jpg','ê°€íŒŒë„3.jpg',200*100,'img/review/',10
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    2,'noimage.jpg','°¡ÆÄµµ4.jpg',200*100,'img/review/',10
+    2,'noimage.jpg','ê°€íŒŒë„4.jpg',200*100,'img/review/',10
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    3,'noimage.jpg','´õ¼î¾îÈ£ÅÚ.jpg',200*100,'img/review/',20
+    3,'noimage.jpg','ë”ì‡¼ì–´í˜¸í…”.jpg',200*100,'img/review/',20
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    4,'noimage.jpg','´ã¾Æ·¡¼­±ÍÆ÷Á¡2.jpg',200*100,'img/review/',30
+    4,'noimage.jpg','ë‹´ì•„ëž˜ì„œê·€í¬ì 2.jpg',200*100,'img/review/',30
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    5,'noimage.jpg','ÇÑ¶ó±¹¼ö2.jpg',200*100,'img/review/',30
+    5,'noimage.jpg','í•œë¼êµ­ìˆ˜2.jpg',200*100,'img/review/',30
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    6,'noimage.jpg','Ä¡°úÈÄ±â.jpg',200*100,'img/review/',40
+    6,'noimage.jpg','ì¹˜ê³¼í›„ê¸°.jpg',200*100,'img/review/',40
 );
 
 INSERT INTO
     rphoto
 VALUES(
-    7,'noimage.jpg','ÇÑÀÇ¿ø.jpg',200*100,'img/review/',40
+    7,'noimage.jpg','í•œì˜ì›.jpg',200*100,'img/review/',40
 );
 
 INSERT INTO
