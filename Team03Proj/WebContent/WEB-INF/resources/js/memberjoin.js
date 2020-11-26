@@ -87,18 +87,18 @@ $(document).ready(function(){
 	
 	// 아이디체크버튼 처리
 	$('#idck').click(function(){
-		var sid = $('#id').val();
-		if(!sid){
+		var tid = $('#id').val();
+		if(!tid){
 			return;
 		}
 		
-/*		// 데이터를 서버에 보내서 응답을 받는다. 비동기통신으로
+		// 데이터를 서버에 보내서 응답을 받는다. 비동기통신으로
 		$.ajax({
-			url: '/cls/member/idCheck.cls',
+			url: '/Team03Proj/memberIdCheck.cls',
 			type: 'POST',
 			dataType: 'json',
 			data: {
-				id: sid
+				id: tid
 			},
 			success: function(data){
 				if(data.result == 'OK'){
@@ -109,7 +109,7 @@ $(document).ready(function(){
 					$('#idmsg').stop().slideDown(500);
 				} else {
 					// 사용 불가능한 아이디인 경우
-					$('#idmsg').html('### 사용가능할 수 없는 아이디 입니다! ###');
+					$('#idmsg').html('### 중복 된 아이디 입니다! ###');
 					$('#idmsg').removeClass('w3-text-blue');
 					$('#idmsg').addClass('w3-text-red');
 					$('#idmsg').stop().slideDown(500);
@@ -118,7 +118,7 @@ $(document).ready(function(){
 			error: function(){
 				alert('### 통신 에러 ###');
 			}
-		});*/
+		});
 	});
 	
 //----------------------------------------------------------
@@ -273,6 +273,7 @@ $(document).ready(function(){
 		$('#mail').removeClass('w3-pale-red');
 		$('#mailmsg').hide();
 	});
+	
 	$('#next1').click(function(){
 		var sid = $('#id').val();
 		var spw = $('#pw').val();
@@ -282,18 +283,23 @@ $(document).ready(function(){
 		if(!sid || !spw || !spw2 || !smail){
 			alert('빈칸을 채워주세요');
 			$('#next1').stop();
-		} else if (sid.length == 8 || sid.length == 12){
+		}else if (8 <= sid.length && 15>= sid.length){
 			$('#step1').addClass('w3-hide');
 			$('#step1').attr('disabled', 'false');
 			$('#step2').removeClass('w3-hide');
 		}
+		if(sid.length<8){
+			alert('아이디는 8글자 이상 15글자 이하여야 합니다');
+		}
 	});
+	
 	// 회원가입 step2버튼 
 	$('#pre2').click(function(){
 		$('#step1').removeClass('w3-hide');
 		$('#step1').attr('disabled', 'true');
 		$('#step2').addClass('w3-hide');
 	});
+	
 	$('#reset2').click(function(){
 		$('#name').val('');
 		$('#name').removeClass('w3-teal');
@@ -306,25 +312,28 @@ $(document).ready(function(){
 		$('#tel').removeClass('w3-pale-red');
 		$('#gen').val("성별");
 	});
+	
 	$('#next2').click(function(){
 		var sname = $('#name').val();
 		var stel = $('#tel').val();
 		var sgen = $('.gen:checked').val();
 		
+		
 		if(!sname){
 			alert(' 이름을 채워주세요');
+			return;
 		} else if(!stel){
 			alert(' 전화번호를 채워주세요');
+			return;
 		} else if(!sgen){
 			alert(' 성별을 선택해주세요');
-			$('#next2').stop();
 		} else if (sgen){
 			$('#step1').addClass('w3-hide');
+			$('#step3').removeClass('w3-hide');
 			$('#step2').addClass('w3-hide');
 			$('#step2').attr('disabled', 'false');
-			//alert('????');
-			$('#step3').removeClass('w3-hide');
 		}
+
 	});
 	// 회원가입 step3 버튼 
 	$('#pre3').click(function(){
@@ -332,6 +341,7 @@ $(document).ready(function(){
 		$('#step2').attr('disabled', 'true');
 		$('#step3').addClass('w3-hide');
 	});
+	
 	$('#reset3').click(function(){
 		$('#ph').val('');
 		$('#abo').val('');
@@ -339,8 +349,8 @@ $(document).ready(function(){
 		$('#stel_name').val('');
 		$('#text').val('');
 	});
-	$('#next3').click(function(){
-		alert('check');
+	
+	$('#next3').click(function(){		
 		joinCheck();
 		joinAgree();
 	});
@@ -371,7 +381,6 @@ $(document).ready(function(){
 		if(!(sid && spw && smail && 
 			sname && syear && smouth && sday && stel && sgen && 
 			sph && sabo && sstel && sstel_name && stext)){
-				alert('항목을 입력해주세요');
 				res = false;
 		} else {
 			alert('입력에 이상이 없는지 확인해주세요.');
@@ -383,10 +392,12 @@ $(document).ready(function(){
 		
 		return res;
     }
+
     function joinAgree() {
         if (joinCheck() != true) {
             return false;
         }
+		
         $("#memberJoinEnd").submit();
         return true;
     }
