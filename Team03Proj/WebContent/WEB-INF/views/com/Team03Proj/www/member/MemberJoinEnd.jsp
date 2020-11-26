@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/Team03Proj/js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/Team03Proj/js/memberjoin.js"></script>ㅁ
+<script type="text/javascript" src="/Team03Proj/js/memberjoin.js"></script>
 <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-search-pseudo-elements></script>
 </head>
 <body>

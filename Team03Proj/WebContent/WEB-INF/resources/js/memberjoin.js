@@ -298,9 +298,10 @@ $(document).ready(function(){
 		$('#name').val('');
 		$('#name').removeClass('w3-teal');
 		$('#name').removeClass('w3-pale-red');
-		$('#year').val('1988');
-		$('#mouth').val('6');
-		$('#day').val('15');
+		$('#birth').val('');
+//		$('#year').val('1988');
+//		$('#mouth').val('6');
+//		$('#day').val('15');
 		$('#tel').val('');
 		$('#tel').removeClass('w3-teal');
 		$('#tel').removeClass('w3-pale-red');
@@ -322,7 +323,6 @@ $(document).ready(function(){
 			$('#step1').addClass('w3-hide');
 			$('#step2').addClass('w3-hide');
 			$('#step2').attr('disabled', 'false');
-			//alert('????');
 			$('#step3').removeClass('w3-hide');
 		}
 	});
@@ -333,14 +333,13 @@ $(document).ready(function(){
 		$('#step3').addClass('w3-hide');
 	});
 	$('#reset3').click(function(){
-		$('#ph').val('');
 		$('#abo').val('');
-		$('#stel').val('');
-		$('#stel_name').val('');
-		$('#text').val('');
+		$('#ph').val('');
+		$('#sos').val('');
+//		$('#stel_name').val('');
+//		$('#text').val('');
 	});
 	$('#next3').click(function(){
-		alert('check');
 		joinCheck();
 		joinAgree();
 	});
@@ -361,21 +360,19 @@ $(document).ready(function(){
 		var sgen = $('.gen:checked').val();
 		var sph = $('.ph:checked').val();
 		var sabo = $('.abo:checked').val();
-		var sstel = $('#stel').val();
-		var sstel_name = $('#stel_name').val();
-		var stext = $('#text').val();
+//		var sstel = $('#stel').val();
+//		var sstel_name = $('#stel_name').val();
+//		var stext = $('#text').val();
 		
-	/*	alert(sid + '|' + spw + '|' + smail + '|' + 
-			sname + '|' + syear + '|' + smouth + '|' + sday + '|' + stel + '|' + sgen + '|' + 
-			sph + '|' + sabo + '|' + sstel + '|' + sstel_name + '|' + stext);*/
+	//	alert(sid + '|' + spw + '|' + smail + '|' + 
+	//		sname + '|' + syear + '|' + smouth + '|' + sday + '|' + stel + '|' + sgen + '|' + 
+	//		sph + '|' + sabo + '|' + sstel + '|' + sstel_name + '|' + stext);
 		if(!(sid && spw && smail && 
 			sname && syear && smouth && sday && stel && sgen && 
-			sph && sabo && sstel && sstel_name && stext)){
-				alert('항목을 입력해주세요');
-				res = false;
+			sph && sabo)){
+			res = false;
 		} else {
 			alert('입력에 이상이 없는지 확인해주세요.');
-			
 		}
 			
 		$('#memberJoinEnd').attr('method', 'POST'); 
