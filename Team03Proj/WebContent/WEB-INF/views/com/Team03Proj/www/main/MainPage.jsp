@@ -427,6 +427,10 @@
             <input type="hidden" name="ax" id="ax" value="${MAPx}">
             <input type="hidden" name="ay" id="ay" value="${MAPy}">
          </form>   
+         
+         
+         
+         
 	<script>
 	
 	/* 1. 지도 마크 표시 */
