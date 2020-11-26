@@ -17,3 +17,25 @@
 컨트롤러 : com.increpas.cls.controller.member.MemberJoinEnd
 뷰	  : /WEB-INF/views/com/increpas/cls/member/MemberJoinEnd.jsp
 ------------------------------------------------------------
+
+id check============================================
+# 아이디 체크
+요청내용 : /Team03Proj/memberIdCheck
+파라미터 : id
+컨트롤러 : com.increpas.cls.controller.member.MemberIdCheck
+뷰(redirect) : ajax
+------------------------------------------------------------
+로그인, 로그아웃============================================
+------------------------------------------------------------
+# 로그인 요청
+요청내용 : /Team03Proj/memberLoginProc.cls
+파라미터 : id, pw
+컨트롤러 : com.increpas.cls.controller.member.MemberLoginProc
+뷰(redirect) : /Team03Proj/main.cls
+------------------------------------------------------------
+# 로그인 요청
+요청내용 : /Team03Proj/memberLogoutProc.cls
+파라미터 : 무
+컨트롤러 : com.increpas.cls.controller.member.MemberLogoutProc
+뷰(redirect) : /Team03Proj/main.cls
+------------------------------------------------------------
