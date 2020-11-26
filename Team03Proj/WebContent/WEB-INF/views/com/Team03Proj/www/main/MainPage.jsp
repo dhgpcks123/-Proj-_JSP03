@@ -71,15 +71,24 @@
 				<!--  slide img -->
 
 				<div
-					style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
-					<i class="fas fa-at"></i> ${STORE.get(0).aloc}
-				</div>
+               style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
+               <b>현재 위치</b> 
+               <div
+                  id="text" style="font-size: 9pt; ">
+               </div>
+            </div> 
+            
+            <div
+               style="font-size: 9pt; margin-top: 10px; padding-left: 15px; margin-top: 15px;">
+               <b>장소 위치</b><br /> ${STORE.get(0).aloc}
+            </div><br /> 
 			
 				
 
 				<div style="font-size: 9pt; padding-left: 15px;">
 					<i class="fas fa-phone-volume"></i> ${STORE.get(0).atel}
 				</div>
+				
 				<div
 					style="border-top: 1px dashed gray; border-bottom: 1px dashed gray; padding: 15px 30px; margin: 30px 5px 15px 5px;">
 					<div>
@@ -359,79 +368,65 @@
 
 	<!-- Page content -->
 	<div class="w3-main" style="margin-left: 400px;">
-		<div class="w3-col" style="margin-top: 20px;">
-			<div class="w3-col" style="text-align: right;">
-				<div class="w3-col m12 l12 s12" style="padding-right: 60px;">
-					내 정보보기 <i class="fas fa-user-cog"></i>
-				</div>
-				<c:if test="${not empty sessionScope.SID}">
-					<div style="padding-right: 60px;">
-						<div style="padding-right: 10px; display:inline-block;">[ ${sessionScope.SID} ] 님 환영합니다.</div>
-						<div class="w3-button w3-amber" id="logoutbtn" style="display:inline-block;">로그아웃</div>
+		
+		<!--  로그인 창 -->
+			<div class="w3-col" style="margin-top: 20px;">
+				<div class="w3-col" style="text-align: right;">
+					<div class="w3-col m12 l12 s12" style="padding-right: 60px;">
+						내 정보보기 <i class="fas fa-user-cog"></i>
 					</div>
-				</c:if>
-				<c:if test="${empty sessionScope.SID}">
-				<form method="POST" action="/Team03Proj/memberLoginProc.cls" id="loginFrm" name="loginFrm">
-						<input type="text"
-						style="width: 15%; padding-left: 10px; padding-left: 10px"
-						placeholder="회원아이디" name="id" id="id">
-					
-						<input type="password"
-						style="width: 15%; padding-left: 10px;" placeholder="비밀번호" name="pw" id="pw">
-						<div class="w3-button w3-amber" id="loginbtn">로그인</div>
-					<div class="w3-button w3-amber w3-hover-lime" style="margin-right: 50px;" id="member">
-						<a href="/Team03Proj/memberJoin.cls">회원가입</a></div>
-				</form>	
-				</c:if>
+					<c:if test="${not empty sessionScope.SID}">
+						<div style="padding-right: 60px;">
+							<div style="padding-right: 10px; display:inline-block;">[ ${sessionScope.SID} ] 님 환영합니다.</div>
+							<div class="w3-button w3-amber" id="logoutbtn" style="display:inline-block;">로그아웃</div>
+						</div>
+					</c:if>
+					<c:if test="${empty sessionScope.SID}">
+					<form method="POST" action="/Team03Proj/memberLoginProc.cls" id="loginFrm" name="loginFrm">
+							<input type="text"
+							style="width: 15%; padding-left: 10px; padding-left: 10px"
+							placeholder="회원아이디" name="id" id="id">
+						
+							<input type="password"
+							style="width: 15%; padding-left: 10px;" placeholder="비밀번호" name="pw" id="pw">
+							<div class="w3-button w3-amber" id="loginbtn">로그인</div>
+						<div class="w3-button w3-amber w3-hover-lime" style="margin-right: 50px;" id="member">
+							<a href="/Team03Proj/memberJoin.cls">회원가입</a></div>
+					</form>	
+					</c:if>
+				</div>
 			</div>
-		</div>
 
-		<div>
+
 			
 		
-			
-							<!-- 지도를 표시할 div 입니다 -->
-			<div style="margin-left:30px;">
+			<span>　   <!-- 검색창 -->
 				
-<!-- map -->			
-
-<!--  <div id="map" style="width:97%; height:700px;"></div> -->
-
-<!--     <hr> -->
-<!--     <ul id="placesList"></ul> -->
-<!--     <div id="pagination"></div> -->
-<div style="margin-left:30px;">
-				<div class="map_wrap2">
-					<div id="map" style="width:97%; height:700px;"></div>
-					<div class="hAddr">
-			              <span class="title">주소정보</span>
-			              <span id="centerAddr"></span>
-			         </div>
+		    </span>
+					<div class="map_wrap">
+						<!-- 지도를 표시할 div 입니다 -->
+						<div id="map" style="width:97%; height:700px;position:relative;overflow:hidden"></div>
+				         <!-- 검색창 -->
+				         <div id="menu_wrap" class="bg_white" style="margin-left: 15px; margin-top: 15px;">
+					        <div class="option">
+					            <div>
+					                <form onsubmit="searchPlaces(); return false;">
+					                    키워드 : <input type="text" value="" id="keyword" size="15"> 
+					                    <button type="submit">검색하기</button> 
+					                </form>
+					            </div>
+					        </div>
+					        <hr>
+					        <ul id="placesList"></ul>
+					        <div id="pagination"></div>
+				    	</div>
+					</div>        
+	</div>	         
+	
 		 <form method="POST" action="/Team03Proj/main.cls" id="mfrm" name="mfrm">
             <input type="hidden" name="ax" id="ax" value="${MAPx}">
             <input type="hidden" name="ay" id="ay" value="${MAPy}">
          </form>   
-			         
-			         
-			         <!-- 검색창 -->
-			         <div class="map_wrap">
-				         <div id="menu_wrap" class="bg_white">
-						        <div class="option">
-						            <div>
-						                <form onsubmit="searchPlaces(); return false;">
-						                    키워드 : <input type="text" value="" id="keyword" size="15"> 
-						                    <button type="submit">검색하기</button> 
-						                </form>
-						            </div>
-						        </div>
-						        <hr>
-						        <ul id="placesList"></ul>
-						        <div id="pagination"></div>
-						    </div>
-					 	</div>
-				 </div>
-  
-
 	<script>
 	
 	/* 1. 지도 마크 표시 */
@@ -791,6 +786,59 @@
 	        el.removeChild (el.lastChild);
 	    }
 	}
+	 
+	 
+// 	// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+// 	if (navigator.geolocation) {
+	    
+// 	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+// 	    navigator.geolocation.getCurrentPosition(function(position) {
+	        
+// 	        var lat = position.coords.latitude, // 위도
+// 	            lon = position.coords.longitude; // 경도
+	        
+// 	        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+// 	            message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용입니다
+	        
+// 	        // 마커와 인포윈도우를 표시합니다
+// 	        displayMarker(locPosition, message);
+	            
+// 	      });
+	    
+// 	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+	    
+// 	    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+// 	        message = 'geolocation을 사용할수 없어요..'
+	        
+// 	    displayMarker(locPosition, message);
+// 	}
+
+// 	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+// 	function displayMarker(locPosition, message) {
+
+// 	    // 마커를 생성합니다
+// 	    var marker = new kakao.maps.Marker({  
+// 	        map: map, 
+// 	        position: locPosition
+// 	    }); 
+	    
+// 	    var iwContent = message, // 인포윈도우에 표시할 내용
+// 	        iwRemoveable = true;
+
+// 	    // 인포윈도우를 생성합니다
+// 	    var infowindow = new kakao.maps.InfoWindow({
+// 	        content : iwContent,
+// 	        removable : iwRemoveable
+// 	    });
+	    
+// 	    // 인포윈도우를 마커위에 표시합니다 
+// 	    infowindow.open(map, marker);
+	    
+// 	    // 지도 중심좌표를 접속위치로 변경합니다
+// 	    map.setCenter(locPosition);      
+// 	}    
+
+
 	</script>
 <!-- map -->			
 

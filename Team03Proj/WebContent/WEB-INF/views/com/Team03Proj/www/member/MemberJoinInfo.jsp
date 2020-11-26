@@ -103,7 +103,7 @@
 					
 					<button class="w3-button w3-yellow w3-left "id="pre2">이전</button>
 				    <button class="w3-button w3-red w3-left" id="reset2">reset</button>
-					<button class="w3-button w3-yellow w3-right" id="next2">다음</button>
+					<div class="w3-button w3-yellow w3-right" id="next2">다음</div>
 				</div>
 			</div>
 			
@@ -122,7 +122,7 @@
 						   
 					<!-- 혈액형  -->
 					<div class="w3-col  pb20">
-						<span class="w3-col m12 w3-border " name="blood" id="blood"  >혈액형</span>
+						<span class="w3-col m12 w3-border" id="blood"  >혈액형</span>
 						<div class="w3-col m5 mt5  w3-border w3-left">
 							<input type="radio" class="w3-radio-medium ph" id="phP" name="ph" value="plus"><span>&nbsp;PH+</span><br>
 							<input type="radio" class="w3-radio-medium ph" id="phM" name="ph" value="minus"><span>&nbsp;PH-</span>
@@ -144,7 +144,8 @@
 					</div>
 					<!-- 추가설명 -->
 					<div class="w3-col pb20">
-						<input class="w3-input w3-padding-16 w3-border" type="textarea" placeholder="참고사항을 입력하세요." name="text" id="text" >
+						<textarea class="w3-input w3-padding-16 w3-border"  placeholder="참고사항을 입력하세요." name="text" id="text" >
+						</textarea>
 					</div>
 							
 					<button class="w3-button w3-yellow w3-left " id="pre3">이전</button>
