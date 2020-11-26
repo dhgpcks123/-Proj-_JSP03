@@ -283,10 +283,13 @@ $(document).ready(function(){
 		if(!sid || !spw || !spw2 || !smail){
 			alert('빈칸을 채워주세요');
 			$('#next1').stop();
-		} else if (sid.length == 8 || sid.length == 12){
+		}else if (8 <= sid.length && 15>= sid.length){
 			$('#step1').addClass('w3-hide');
 			$('#step1').attr('disabled', 'false');
 			$('#step2').removeClass('w3-hide');
+		}
+		if(sid.length<8){
+			alert('아이디는 8글자 이상 15글자 이하여야 합니다');
 		}
 	});
 	
@@ -347,11 +350,9 @@ $(document).ready(function(){
 		$('#text').val('');
 	});
 	
-	$('#next3').click(function(){
-		alert('check');
+	$('#next3').click(function(){		
 		joinCheck();
 		joinAgree();
-		alert('여기5-1')
 	});
 
 
@@ -380,7 +381,6 @@ $(document).ready(function(){
 		if(!(sid && spw && smail && 
 			sname && syear && smouth && sday && stel && sgen && 
 			sph && sabo && sstel && sstel_name && stext)){
-				alert('항목을 입력해주세요');
 				res = false;
 		} else {
 			alert('입력에 이상이 없는지 확인해주세요.');

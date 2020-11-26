@@ -367,70 +367,71 @@
 		id="myOverlay"></div>
 
 	<!-- Page content -->
-	<div class="w3-main" style="margin-left: 400px;">
-		
-		<!--  로그인 창 -->
-			<div class="w3-col" style="margin-top: 20px;">
-				<div class="w3-col" style="text-align: right;">
-					<div class="w3-col m12 l12 s12" style="padding-right: 60px;">
-						내 정보보기 <i class="fas fa-user-cog"></i>
-					</div>
-					<c:if test="${not empty sessionScope.SID}">
-						<div style="padding-right: 60px;">
-							<div style="padding-right: 10px; display:inline-block;">[ ${sessionScope.SID} ] 님 환영합니다.</div>
-							<div class="w3-button w3-amber" id="logoutbtn" style="display:inline-block;">로그아웃</div>
-						</div>
-					</c:if>
-					<c:if test="${empty sessionScope.SID}">
-					<form method="POST" action="/Team03Proj/memberLoginProc.cls" id="loginFrm" name="loginFrm">
-							<input type="text"
-							style="width: 15%; padding-left: 10px; padding-left: 10px"
-							placeholder="회원아이디" name="id" id="id">
-						
-							<input type="password"
-							style="width: 15%; padding-left: 10px;" placeholder="비밀번호" name="pw" id="pw">
-							<div class="w3-button w3-amber" id="loginbtn">로그인</div>
-						<div class="w3-button w3-amber w3-hover-lime" style="margin-right: 50px;" id="member">
-							<a href="/Team03Proj/memberJoin.cls">회원가입</a></div>
-					</form>	
-					</c:if>
-				</div>
-			</div>
-
-
-			
-		
-			<span>　   <!-- 검색창 -->
-				
-		    </span>
-					<div class="map_wrap">
-						<!-- 지도를 표시할 div 입니다 -->
-						<div id="map" style="width:97%; height:700px;position:relative;overflow:hidden"></div>
-				         <!-- 검색창 -->
-				         <div id="menu_wrap" class="bg_white" style="margin-left: 15px; margin-top: 15px;">
-					        <div class="option">
-					            <div>
-					                <form onsubmit="searchPlaces(); return false;">
-					                    키워드 : <input type="text" value="" id="keyword" size="15"> 
-					                    <button type="submit">검색하기</button> 
-					                </form>
-					            </div>
-					        </div>
-					        <hr>
-					        <ul id="placesList"></ul>
-					        <div id="pagination"></div>
-				    	</div>
-					</div>        
-	</div>	         
-	
-		 <form method="POST" action="/Team03Proj/main.cls" id="mfrm" name="mfrm">
+   <div class="w3-main" style="margin-left: 420px;">
+      <div class="w3-col" style="margin-top: 20px;">
+         <div class="w3-col" style="text-align: right;">
+            <div class="w3-col m12 l12 s12" style="padding-right: 60px;">
+               내 정보보기 <i class="fas fa-user-cog"></i>
+            </div>
+            <c:if test="${not empty sessionScope.SID}">
+               <div style="padding-right: 60px;">
+                  <div style="padding-right: 10px; display:inline-block;">[ ${sessionScope.SID} ] 님 환영합니다.</div>
+                  <div class="w3-button w3-amber" id="logoutbtn" style="display:inline-block;">로그아웃</div>
+               </div>
+            </c:if>
+            <c:if test="${empty sessionScope.SID}">
+            <form method="POST" action="/Team03Proj/memberLoginProc.cls" id="loginFrm" name="loginFrm">
+                  <input type="text"
+                  style="width: 15%; padding-left: 10px; padding-left: 10px"
+                  placeholder="회원아이디" name="id" id="id">
+               
+                  <input type="password"
+                  style="width: 15%; padding-left: 10px;" placeholder="비밀번호" name="pw" id="pw">
+                  <div class="w3-button w3-amber" id="loginbtn">로그인</div>
+               <div class="w3-button w3-amber w3-hover-lime" style="margin-right: 50px;" id="member">
+                  <a href="/Team03Proj/memberJoin.cls">회원가입</a></div>
+            </form>   
+            </c:if>
+         </div>
+      </div>
+       
+                <div class="map_wrap2">
+                     <div class="hAddr">   
+                          <span class="title">주소정보</span>
+                          <span id="centerAddr"></span>
+                    </div>
+              </div>
+               <div class="map_wrap">
+                     
+                  <!-- 지도를 표시할 div 입니다 -->
+                  
+                  <div id="map" style="width:97%; height:700px;position:relative;overflow:hidden"></div>
+                        
+                     <!-- 검색창 -->
+                     <div id="menu_wrap" class="bg_white" style="margin-left: 15px; margin-top: 15px;">
+                       <div class="option">
+                           <div>
+                               <form onsubmit="searchPlaces(); return false;">
+                                   키워드 : <input type="text" value="" id="keyword" size="15"> 
+                                   <button type="submit">검색하기</button> 
+                               </form>
+                           </div>
+                       </div>
+                       <hr>
+                       <ul id="placesList"></ul>
+                       <div id="pagination"></div>
+                   </div>
+               </div>
+            
+                  
+   </div>            
+   
+       <form method="POST" action="/Team03Proj/main.cls" id="mfrm" name="mfrm">
             <input type="hidden" name="ax" id="ax" value="${MAPx}">
             <input type="hidden" name="ay" id="ay" value="${MAPy}">
          </form>   
-         
-         
-         
-         
+
+  
 	<script>
 	
 	/* 1. 지도 마크 표시 */

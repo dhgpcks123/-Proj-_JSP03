@@ -124,8 +124,8 @@
 					<div class="w3-col  pb20">
 						<span class="w3-col m12 w3-border" id="blood"  >혈액형</span>
 						<div class="w3-col m5 mt5  w3-border w3-left">
-							<input type="radio" class="w3-radio-medium ph" id="phP" name="ph" value="plus"><span>&nbsp;PH+</span><br>
-							<input type="radio" class="w3-radio-medium ph" id="phM" name="ph" value="minus"><span>&nbsp;PH-</span>
+							<input type="radio" class="w3-radio-medium ph" id="phP" name="ph" value="plus"><span>&nbsp;RH+</span><br>
+							<input type="radio" class="w3-radio-medium ph" id="phM" name="ph" value="minus"><span>&nbsp;RH-</span>
 						</div>
 						<div class="w3-col m5 mt5 w3-border w3-right">
 							<input type="radio" class="w3-radio-medium abo" id="aboA" name="abo" value="A"><span>&nbsp;A</span>
